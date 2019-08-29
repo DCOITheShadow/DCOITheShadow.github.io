@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="闲扯所以我还是不会做网络流啊。。。 打个模板多轻松啊，为什么还要建图呢，天空这么蓝，森林那么绿，这个世界多么美好啊！ 建图的套路感觉好多啊。。还是慢慢学吧。。 Solution题目分析/建图因为限制了方向，同时还限制了每一个最多取一次，要求和最大，想到了什么？什么都没想到 最大费用最大流！ 因为每个点只能选一次，所以我们考虑把这个点拆开，变成一个入点，一个出点，然后在入点和出点之间连上一条流量为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://DCOITheShadow.github.io/2019/08/29/P2045 方格取数加强版/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="闲扯所以我还是不会做网络流啊。。。 打个模板多轻松啊，为什么还要建图呢，天空这么蓝，森林那么绿，这个世界多么美好啊！ 建图的套路感觉好多啊。。还是慢慢学吧。。 Solution题目分析/建图因为限制了方向，同时还限制了每一个最多取一次，要求和最大，想到了什么？什么都没想到 最大费用最大流！ 因为每个点只能选一次，所以我们考虑把这个点拆开，变成一个入点，一个出点，然后在入点和出点之间连上一条流量为">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-18T01:56:30.172Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="闲扯所以我还是不会做网络流啊。。。 打个模板多轻松啊，为什么还要建图呢，天空这么蓝，森林那么绿，这个世界多么美好啊！ 建图的套路感觉好多啊。。还是慢慢学吧。。 Solution题目分析/建图因为限制了方向，同时还限制了每一个最多取一次，要求和最大，想到了什么？什么都没想到 最大费用最大流！ 因为每个点只能选一次，所以我们考虑把这个点拆开，变成一个入点，一个出点，然后在入点和出点之间连上一条流量为">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://DCOITheShadow.github.io/2019/08/29/P2045 方格取数加强版/">
+
+
+
+
+
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P2045 方格取数加强版/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="THeShadow">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-29T19:43:41+08:00">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="闲扯"><a href="#闲扯" class="headerlink" title="闲扯"></a>闲扯</h1><p>所以我还是不会做网络流啊。。。</p>
+<p>打个模板多轻松啊，为什么还要建图呢，<del>天空这么蓝，森林那么绿，这个世界多么美好啊！</del></p>
+<p>建图的套路感觉好多啊。。还是慢慢学吧。。</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h2 id="题目分析-建图"><a href="#题目分析-建图" class="headerlink" title="题目分析/建图"></a>题目分析/建图</h2><p>因为限制了方向，同时还限制了每一个最多取一次，要求和最大，想到了什么？<del>什么都没想到</del> 最大费用最大流！</p>
+<p>因为每个点只能选一次，所以我们考虑把这个点拆开，变成一个入点，一个出点，然后在入点和出点之间连上一条流量为 $1$ ，费用为 $val_i$ 的边。但是每一个的数取了后还是可以经过这个位置的，所以还要在两点间连一条流量为 $INF$ ，费用为 $0$ 的边，来表示这个点的数取过之后，还是可以随意经过。</p>
+<p>因为每一个点只能到它右边和下边的点，从这个点的出点向它连向的点的入点连一条流量为 $INF$ ，费用为 $0$ 的边，表示连通。</p>
+<p>虚拟一个超级源点，连向第一个点的入点，流量为 $k$ ，费用为 $0$ ，限制只能取 $k$ 次。</p>
+<p>虚拟一个超级汇点，从最后一个点的出点连向改点，流量为 $k$ ，费用为 $0$ ，作用也是限制只能取 $k$ 次。</p>
+<p>然后就是跑一遍最大费用最大流模板即可。</p>
+<h2 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h2><p>①对于限制了该点的取用次数的，可以将其拆成两个点，在两点间连一条流量为使用次数的边；如果取完了，但还是能经过，那么再连一条流量为 $INF$ 的边。</p>
+<p>②对于最大费用最大流，只需要将边的费用全部取相反数，然后跑最小费用最大流，最后得到的答案再取一次相反数即可。</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> del(a,i) memset(a,i,sizeof(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inl inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> il inl void</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> it inl int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ill inl ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ri re int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rl re ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mid ((l+r)&gt;&gt;1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lowbit(x) (x&amp;(-x))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;<span class="title">il</span> <span class="title">read</span>(<span class="title">T</span> &amp;<span class="title">x</span>)&#123;</span></span><br><span class="line">	<span class="keyword">int</span> f=<span class="number">1</span>;<span class="keyword">char</span> k=getchar();x=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(;k&gt;<span class="string">'9'</span>||k&lt;<span class="string">'0'</span>;k=getchar()) <span class="keyword">if</span>(k==<span class="string">'-'</span>) f=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span>(;k&gt;=<span class="string">'0'</span>&amp;&amp;k&lt;=<span class="string">'9'</span>;k=getchar()) x=(x&lt;&lt;<span class="number">3</span>)+(x&lt;&lt;<span class="number">1</span>)+k-<span class="string">'0'</span>;</span><br><span class="line">	x*=f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;<span class="title">il</span> <span class="title">print</span>(<span class="title">T</span> <span class="title">x</span>)&#123;</span></span><br><span class="line">	<span class="keyword">if</span>(x/<span class="number">10</span>) print(x/<span class="number">10</span>);</span><br><span class="line">	<span class="built_in">putchar</span>(x%<span class="number">10</span>+<span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">mul</span><span class="params">(ll a,ll b,ll mod)</span></span>&#123;<span class="keyword">long</span> <span class="keyword">double</span> c=<span class="number">1.</span>;<span class="keyword">return</span> (a*b-(ll)(c*a*b/mod)*mod)%mod;&#125;</span><br><span class="line"><span class="function">it <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> m,<span class="keyword">int</span> mod)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> res=<span class="number">1</span>,bas=x%mod;</span><br><span class="line">	<span class="keyword">while</span>(m)&#123;</span><br><span class="line">		<span class="keyword">if</span>(m&amp;<span class="number">1</span>) res=(res*bas)%mod;</span><br><span class="line">		bas=(bas*bas)%mod,m&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">5e3</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,s,t,val,head[MAXN],num_edge=<span class="number">-1</span>,pre[MAXN],last[MAXN],dis[MAXN],flow[MAXN],ans;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> next,to,w,c;</span><br><span class="line">	Edge()&#123;&#125;</span><br><span class="line">	Edge(<span class="keyword">int</span> next,<span class="keyword">int</span> to,<span class="keyword">int</span> w,<span class="keyword">int</span> c):next(next),to(to),w(w),c(c)&#123;&#125;</span><br><span class="line">&#125;edge[MAXN&lt;&lt;<span class="number">2</span>];</span><br><span class="line"><span class="function">il <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> w,<span class="keyword">int</span> c)</span></span>&#123;</span><br><span class="line">	edge[++num_edge]=Edge(head[u],v,w,c),head[u]=num_edge;</span><br><span class="line">	edge[++num_edge]=Edge(head[v],u,<span class="number">0</span>,-c),head[v]=num_edge;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">bool</span> tr[MAXN];</span><br><span class="line"><span class="function">inl <span class="keyword">bool</span> <span class="title">SPFA</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span></span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;q.push(s);</span><br><span class="line">	del(dis,<span class="number">0x3f</span>),del(flow,<span class="number">0x3f</span>);</span><br><span class="line">	dis[s]=<span class="number">0</span>,pre[t]=<span class="number">-1</span>,tr[s]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">		ri pos=q.front();q.pop();tr[pos]=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(ri i=head[pos];i!=<span class="number">-1</span>;i=edge[i].next)</span><br><span class="line">			<span class="keyword">if</span>(dis[edge[i].to]&gt;dis[pos]+edge[i].c&amp;&amp;edge[i].w&gt;<span class="number">0</span>)&#123;</span><br><span class="line">				dis[edge[i].to]=dis[pos]+edge[i].c;</span><br><span class="line">				pre[edge[i].to]=pos,last[edge[i].to]=i;</span><br><span class="line">				flow[edge[i].to]=min(flow[pos],edge[i].w);</span><br><span class="line">				<span class="keyword">if</span>(!tr[edge[i].to]) q.push(edge[i].to),tr[edge[i].to]=<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> pre[t]!=<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="title">MCMF</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(SPFA(s,t))&#123;</span><br><span class="line">		ans+=flow[t]*dis[t];</span><br><span class="line">		<span class="keyword">for</span>(ri u=t;u^s;u=pre[u]) edge[last[u]].w-=flow[t],edge[last[u]^<span class="number">1</span>].w+=flow[t];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//	freopen(".in","r",stdin);</span></span><br><span class="line"><span class="comment">//	freopen(".out","w",stdout);</span></span><br><span class="line">	read(n),read(m),t=n*n*<span class="number">2</span>+<span class="number">1</span>,del(head,<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">for</span>(ri i=<span class="number">1</span>;i&lt;=n;++i)</span><br><span class="line">		<span class="keyword">for</span>(ri j=<span class="number">1</span>;j&lt;=n;++j)&#123;</span><br><span class="line">			read(val);</span><br><span class="line">			add_edge(<span class="number">2</span>*((i<span class="number">-1</span>)*n+j)<span class="number">-1</span>,<span class="number">2</span>*((i<span class="number">-1</span>)*n+j),<span class="number">1</span>,-val),add_edge(<span class="number">2</span>*((i<span class="number">-1</span>)*n+j)<span class="number">-1</span>,<span class="number">2</span>*((i<span class="number">-1</span>)*n+j),INF,<span class="number">0</span>);</span><br><span class="line">			<span class="keyword">if</span>(j!=n) add_edge(<span class="number">2</span>*((i<span class="number">-1</span>)*n+j),<span class="number">2</span>*((i<span class="number">-1</span>)*n+j+<span class="number">1</span>)<span class="number">-1</span>,INF,<span class="number">0</span>);</span><br><span class="line">			<span class="keyword">if</span>(i!=n) add_edge(<span class="number">2</span>*((i<span class="number">-1</span>)*n+j),<span class="number">2</span>*(i*n+j)<span class="number">-1</span>,INF,<span class="number">0</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	add_edge(s,<span class="number">1</span>,m,<span class="number">0</span>),add_edge(n*n*<span class="number">2</span>,t,m,<span class="number">0</span>);</span><br><span class="line">	MCMF(s,t);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,-ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>网络流的题目主要还是建图，图建好了，那么剩下的都是模板了。对于不同的问题要具体分析，同时做题的时候要注意积累建图的技巧。</p>
+<p>蒟蒻与 $dalao$ 们的距离还很远，要加油啊！！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/29/P2598 [ZJOI2009]狼和羊的故事/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/29/P2034 选择数字/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">THeShadow</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#闲扯"><span class="nav-number">1.</span> <span class="nav-text">闲扯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目分析-建图"><span class="nav-number">2.1.</span> <span class="nav-text">题目分析/建图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小技巧"><span class="nav-number">2.2.</span> <span class="nav-text">小技巧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">THeShadow</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
