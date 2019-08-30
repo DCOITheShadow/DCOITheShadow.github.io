@@ -1157,7 +1157,7 @@ Solution题目分析/建图因为限制了方向，同时还限制了每一个�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P2034 选择数字/">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P2598 [ZJOI2009]狼和羊的故事/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TheShadow">
@@ -1176,7 +1176,7 @@ Solution题目分析/建图因为限制了方向，同时还限制了每一个�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/29/P2034 选择数字/" itemprop="url">P2034 选择数字</a></h1>
+                <a class="post-title-link" href="/2019/08/29/P2598 [ZJOI2009]狼和羊的故事/" itemprop="url">P2598 [ZJOI2009]狼和羊的故事</a></h1>
         
 
         <div class="post-meta">
@@ -1228,14 +1228,15 @@ Solution题目分析/建图因为限制了方向，同时还限制了每一个�
       
         
           
-          闲扯单调队列优化 $DP$ 的第一题，结果死在了一些很奇怪的操作上。。。
+          闲扯今天上课将网络流例题，难得的想出怎么建图的几个题之一。。
 题面题面
-Solution定义 $dp_i$ 表示考虑了前 $i$ 个数，能够选取的最大价值。
-因为最多只能连续选 $k$ 个，所以我们可以在 $[i-k,i-1]$ 中选取一个断点 $j$ ，表示这个点不选，那么此时 $dp
+Solution因为只有羊和狼两种生物，且不能分到同一个集合中，所以可以建立二分图。而我们要用最少的篱笆，将狼和羊分开，考虑最小割。
+虚拟一个超级源点，连向所有是狼的格子，流量为 $INF$ ，表示这个边不能割。
+虚拟一个超级汇
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/29/P2034 选择数字/#more" rel="contents">
+            <a class="btn" href="/2019/08/29/P2598 [ZJOI2009]狼和羊的故事/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1417,7 +1418,7 @@ Solution要找出一个点，使得 $\sum\limits_{j!=rt} dis_j\cdot c
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P2598 [ZJOI2009]狼和羊的故事/">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P2034 选择数字/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TheShadow">
@@ -1436,7 +1437,7 @@ Solution要找出一个点，使得 $\sum\limits_{j!=rt} dis_j\cdot c
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/29/P2598 [ZJOI2009]狼和羊的故事/" itemprop="url">P2598 [ZJOI2009]狼和羊的故事</a></h1>
+                <a class="post-title-link" href="/2019/08/29/P2034 选择数字/" itemprop="url">P2034 选择数字</a></h1>
         
 
         <div class="post-meta">
@@ -1488,15 +1489,14 @@ Solution要找出一个点，使得 $\sum\limits_{j!=rt} dis_j\cdot c
       
         
           
-          闲扯今天上课将网络流例题，难得的想出怎么建图的几个题之一。。
+          闲扯单调队列优化 $DP$ 的第一题，结果死在了一些很奇怪的操作上。。。
 题面题面
-Solution因为只有羊和狼两种生物，且不能分到同一个集合中，所以可以建立二分图。而我们要用最少的篱笆，将狼和羊分开，考虑最小割。
-虚拟一个超级源点，连向所有是狼的格子，流量为 $INF$ ，表示这个边不能割。
-虚拟一个超级汇
+Solution定义 $dp_i$ 表示考虑了前 $i$ 个数，能够选取的最大价值。
+因为最多只能连续选 $k$ 个，所以我们可以在 $[i-k,i-1]$ 中选取一个断点 $j$ ，表示这个点不选，那么此时 $dp
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/29/P2598 [ZJOI2009]狼和羊的故事/#more" rel="contents">
+            <a class="btn" href="/2019/08/29/P2034 选择数字/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
