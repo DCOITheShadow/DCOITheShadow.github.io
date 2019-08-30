@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="闲扯今天的考试比昨天友好多了，起码大佬们讲的东西大多数都还是听得懂。 不过话说 $DC$ 少爷机还真是强啊，暴力跑过了 $8$ 个点。 题面$T1$又要维护连续编号的节点的子树和，又要支持单点修改，问题就变得十分不可描述起来，因为貌似没法用线段树之类的来一起维护。 考虑分块。将编号 $1\sim n$ 分为 $\sqrt{n}$ 块。 先用 $DFS$ 预处理出每个点的 $dfn$ 序以及从该点到">
+<meta property="og:type" content="article">
+<meta property="og:title" content="test20190830">
+<meta property="og:url" content="https://DCOITheShadow.github.io/2019/08/30/test20190830题解/index.html">
+<meta property="og:site_name" content="TheShadow">
+<meta property="og:description" content="闲扯今天的考试比昨天友好多了，起码大佬们讲的东西大多数都还是听得懂。 不过话说 $DC$ 少爷机还真是强啊，暴力跑过了 $8$ 个点。 题面$T1$又要维护连续编号的节点的子树和，又要支持单点修改，问题就变得十分不可描述起来，因为貌似没法用线段树之类的来一起维护。 考虑分块。将编号 $1\sim n$ 分为 $\sqrt{n}$ 块。 先用 $DFS$ 预处理出每个点的 $dfn$ 序以及从该点到">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-30T10:27:25.398Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="test20190830">
+<meta name="twitter:description" content="闲扯今天的考试比昨天友好多了，起码大佬们讲的东西大多数都还是听得懂。 不过话说 $DC$ 少爷机还真是强啊，暴力跑过了 $8$ 个点。 题面$T1$又要维护连续编号的节点的子树和，又要支持单点修改，问题就变得十分不可描述起来，因为貌似没法用线段树之类的来一起维护。 考虑分块。将编号 $1\sim n$ 分为 $\sqrt{n}$ 块。 先用 $DFS$ 预处理出每个点的 $dfn$ 序以及从该点到">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://DCOITheShadow.github.io/2019/08/30/test20190830题解/">
+
+
+
+
+
+  <title>test20190830 | TheShadow</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TheShadow</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/30/test20190830题解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TheShadow">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TheShadow">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">test20190830</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-30T18:26:57+08:00">
+                2019-08-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="闲扯"><a href="#闲扯" class="headerlink" title="闲扯"></a>闲扯</h1><p>今天的考试比昨天友好多了，起码大佬们讲的东西大多数都还是听得懂。</p>
+<p>不过话说 $DC$ 少爷机还真是强啊，暴力跑过了 $8$ 个点。</p>
+<h1 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h1><h1 id="T1"><a href="#T1" class="headerlink" title="$T1$"></a>$T1$</h1><p>又要维护连续编号的节点的子树和，又要支持单点修改，问题就变得十分不可描述起来，因为貌似没法用线段树之类的来一起维护。</p>
+<p>考虑分块。将编号 $1\sim n$ 分为 $\sqrt{n}$ 块。</p>
+<p>先用 $DFS$ 预处理出每个点的 $dfn$ 序以及从该点到根节点对每一个块的贡献次数。</p>
+<p>询问时，整块的部分直接调用答案，对于边角部分利用求出的 $dfn$ 序，用树状数组查询。（树状数组是以 $dfn$ 序为下标，维护子树和）</p>
+<p>修改时，先对树状数组进行单点修改，然后枚举对每一个块的贡献次数，直接修改块的答案。</p>
+<h1 id="T2"><a href="#T2" class="headerlink" title="$T2$"></a>$T2$</h1><p>对于求一个图中的生成树个数，考虑使用<strong>矩阵树定理</strong>。</p>
+<p><a href="https://baike.baidu.com/item/%E7%9F%A9%E9%98%B5-%E6%A0%91%E5%AE%9A%E7%90%86/18894498?fr=aladdin" target="_blank" rel="noopener">矩阵树定理</a></p>
+<p>先构造出该图的基尔霍夫矩阵，因为是一个完全二分图，可以发现是十分有规律的，写出该矩阵的余子式。</p>
+<p>$\begin{bmatrix}<br> m&amp;  0&amp;  \cdots&amp;  0&amp;  -1&amp;  -1&amp;  \cdots&amp; -1\<br> 0&amp;  m&amp;  \cdots&amp;  0&amp;  -1&amp;  -1&amp;  \cdots&amp; -1\<br> \vdots&amp;  \vdots&amp;  \ddots&amp;  \vdots&amp;  \vdots&amp;  \vdots&amp;  \vdots&amp; \vdots\<br> 0&amp;  0&amp;  \cdots&amp;  m&amp;  -1&amp;  -1&amp;  \cdots&amp; -1\<br> -1&amp;  -1&amp;  \cdots&amp;  -1&amp;  n&amp;  0&amp;  \cdots&amp; 0\<br> -1&amp;  -1&amp;  \cdots&amp;  -1&amp;  0&amp;  n&amp;  \cdots&amp; 0\<br> \vdots&amp;  \vdots&amp;  \vdots&amp;  \vdots&amp;  \vdots&amp;  \vdots&amp;  \ddots&amp; \vdots\<br> -1&amp;  -1&amp;  \cdots&amp;  -1&amp;  0&amp;  0&amp;  \cdots&amp; n<br>\end{bmatrix}$</p>
+<p>这个矩阵的行列式就是答案。</p>
+<p>我们可以将它分为 $4$ 个区域，左下角和右上角全是 $-1$ 。</p>
+<p>左上角是一个 $n\times n$ 的对角矩阵，对角线上的元素都是 $m$ 。</p>
+<p>右下角是一个 $(m-1)\times(m-1)$ 的对角矩阵，对角线上的元素都是 $n$ 。</p>
+<p>因为这个矩阵十分特殊，我们直接尝试算它的行列式。</p>
+<p>详细计算过程见<a href="https://jkloverdcoi.github.io/2019/08/30/test20190830/" target="_blank" rel="noopener"> $jklover$ 大佬的 $blog$ </a>。</p>
+<h1 id="T3"><a href="#T3" class="headerlink" title="$T3$"></a>$T3$</h1><p>将两种移动方式看做两个向量 $\vec{a},\vec{b}$ 。因为题目保证它们不共线，所以每个点都可以被写成 $x\cdot\vec{a}+y\cdot\vec{b}$ 。</p>
+<p>以解出来的 $(x,y)$ 代替原来的坐标，就变成了每次可以向右或向上走一步，可以直接舍去坐标转换后不是整点的点，要求不能经过障碍点，求起点到终点的方案数。</p>
+<p>如果没有障碍，答案显然是 $C_{x+y}^x$ （一共要走 $x+y$ 步，从中选出 $x$ 步为向左走的）。</p>
+<p>但现在有障碍，直接递推显然不行，因为新坐标的大小可以达到 $2\times 500^2$ 。</p>
+<p>将障碍点，目标点视为关键点，记原点为 $0$ 号关键点。</p>
+<p>坐标转换后，按照 $x$ 为第一关键字， $y$ 为第二关键字排序，就做出了一个拓扑序，再进行 $DP$ 。</p>
+<p>设 $f(i)$ 表示从原点到第 $i$ 个关键点，其间不经过其他关键点的方案数。</p>
+<p>$g(i)$ 表示从第 $i$ 个关键点到第 $j$ 个关键点的所有方案数。</p>
+<p>转移有 $f(i)=g(0,i)-\sum\limits_{j=1}^{i-1}g(j,i)\cdot f(j)$ 。而 $g$ 不需要考虑障碍，若能到达就是组合数，否则就是 $0$ 。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><del>就一个字——菜</del></p>
+<p>做题还是没掌握到套路，需要多联系。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/29/P4943 密室/" rel="next" title="P4943 密室">
+                <i class="fa fa-chevron-left"></i> P4943 密室
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpg" alt="TheShadow">
+            
+              <p class="site-author-name" itemprop="name">TheShadow</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#闲扯"><span class="nav-number">1.</span> <span class="nav-text">闲扯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题面"><span class="nav-number">2.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#T1"><span class="nav-number">3.</span> <span class="nav-text">$T1$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#T2"><span class="nav-number">4.</span> <span class="nav-text">$T2$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#T3"><span class="nav-number">5.</span> <span class="nav-text">$T3$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TheShadow</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
