@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next1.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next1.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="同余学习笔记定义 ​        若整数 $a$ 和整数 $b$ 除以正整数 $m$ 的余数相等，则称 $a,b$ 模 $m$ 同余，记为 $a\equiv b\ (mod\ m)$ 。 同余系与剩余系 ​        对于 $\forall a\in[0,m-1]$ ，集合 {$a+km$} $(k\in\N)$ 的所有数模 $m$ 同余，余数都是 $a$ 。该集合称为一个模 $m$ 的同余">
+<meta property="og:type" content="article">
+<meta property="og:title" content="同余学习笔记">
+<meta property="og:url" content="https://DCOITheShadow.github.io/2019/09/02/同余学习笔记/index.html">
+<meta property="og:site_name" content="TheShadow">
+<meta property="og:description" content="同余学习笔记定义 ​        若整数 $a$ 和整数 $b$ 除以正整数 $m$ 的余数相等，则称 $a,b$ 模 $m$ 同余，记为 $a\equiv b\ (mod\ m)$ 。 同余系与剩余系 ​        对于 $\forall a\in[0,m-1]$ ，集合 {$a+km$} $(k\in\N)$ 的所有数模 $m$ 同余，余数都是 $a$ 。该集合称为一个模 $m$ 的同余">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-02T13:22:11.598Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="同余学习笔记">
+<meta name="twitter:description" content="同余学习笔记定义 ​        若整数 $a$ 和整数 $b$ 除以正整数 $m$ 的余数相等，则称 $a,b$ 模 $m$ 同余，记为 $a\equiv b\ (mod\ m)$ 。 同余系与剩余系 ​        对于 $\forall a\in[0,m-1]$ ，集合 {$a+km$} $(k\in\N)$ 的所有数模 $m$ 同余，余数都是 $a$ 。该集合称为一个模 $m$ 的同余">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://DCOITheShadow.github.io/2019/09/02/同余学习笔记/">
+
+
+
+
+
+  <title>同余学习笔记 | TheShadow</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TheShadow</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/09/02/同余学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TheShadow">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TheShadow">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">同余学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-02T21:21:39+08:00">
+                2019-09-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="同余学习笔记"><a href="#同余学习笔记" class="headerlink" title="同余学习笔记"></a>同余学习笔记</h1><p><strong>定义</strong></p>
+<p>​        若整数 $a$ 和整数 $b$ 除以正整数 $m$ 的余数相等，则称 $a,b$ 模 $m$ 同余，记为 $a\equiv b\ (mod\ m)$ 。</p>
+<p><strong>同余系与剩余系</strong></p>
+<p>​        对于 $\forall a\in[0,m-1]$ ，集合 {$a+km$} $(k\in\N)$ 的所有数模 $m$ 同余，余数都是 $a$ 。该集合称为一个模 $m$ 的<strong>同余类</strong>，简记为 $\bar{a}$ 。</p>
+<p>​        模 $m$ 的同余类一共有 $m$ 个，分别为 $\bar{0},\bar{1},\cdots,\overline{m-1}$ 。它们构成 $m$ 的<strong>完全剩余系</strong>。</p>
+<p>​        $1\sim m$ 中与 $m$ 互质的数代表的同余类共有 $\varphi(m)$ 个，它们构成 $m$ 的<strong>简化剩余系</strong>。</p>
+<p>​        简化剩余系关于模 $m$ 乘法封闭。这是因为若 $a,b(1\leq a,b\leq m)$ 与 $m$ 互质，则 $a<em>b$ 也不可能与 $m$ 有相同的质因子，即 $gcd(a</em>b,m)=1$ 。再由余数的定义可知 $a<em>b\ mod\ m$ 也与 $m$ 互质，即 $a</em>b\ mod\ m$ 也属于 $m$ 的简化剩余系。</p>
+<h2 id="欧拉定理"><a href="#欧拉定理" class="headerlink" title="欧拉定理"></a>欧拉定理</h2><p><strong>费马小定理</strong></p>
+<p>​        若 $p$ 是质数，则对于任意整数 $a$ ，有 $a^p\equiv a\ (mod\ p)$ 。</p>
+<p><strong>欧拉定理</strong></p>
+<p>​        若正整数 $a,n$ 互质，则 $a^{\varphi(n)}\equiv 1\ (mod\ n)$ 。</p>
+<p>证明：</p>
+<p>​        设 $n$ 的简化剩余系为 {$\overline{a_1},\overline{a_2},\cdots,\overline{a_{\varphi(n)}}$}。对 $\forall a_i,a_j$ ，若 $a<em>a_i\equiv a</em>a_j\ (mod\ n)$ ，则 $a*(a_i-a_j)\equiv 0$ 。因为 $a,n$ 互质，所以 $a_i-a_j\equiv 0$ ，即 $a_i\equiv a_j$ 。故当 $a_i\not= a_j$ 时， $aa_i,aa_j$ 也代表不同的同余类。</p>
+<p>​        又因为简化同余系关于模 $n$ 乘法封闭，故 $\overline{aa_i}$ 也在简化剩余系中。因此，集合 {$\overline{a_1},\overline{a_2},\cdots,\overline{a_{\varphi(n)}}$}与集合 {$\overline{aa_1},\overline{aa_2},\cdots,\overline{aa_{\varphi(n)}}$}都能表示 $n$ 的简化剩余系。综上所述： $a^{\varphi(n)}a_1a_2\cdots a_{\varphi(n)}\equiv(aa_1)(aa_2)\cdots(aa_{\varphi(n)})\equiv a_1a_2\cdots a_{\varphi(n)}\ (mod\ n)$ </p>
+<p>​        因此 $a^{\varphi(n)}\equiv1\ (mod\ n)$ 。</p>
+<p>​        当 $p$ 是质数时， $\varphi(n)=n-1$ ，并且只有 $p$ 的倍数与 $p$ 不互质。所以，只要 $a$ 不是 $p$ 的倍数，就有 $a^{p-1}\equiv1\ (mod\ p)$ ，两边同乘 $a$ 就是费马小定理。另外，若 $a$ 是 $p$ 的倍数，费马小定理显然成立。</p>
+<p>​        证毕。</p>
+<p><strong>欧拉定理的推论</strong></p>
+<p>​        若正整数 $a,n$ 互质，则对于任意正整数 $b$ ，有 $a^b\equiv a^{b\ (mod\ \varphi(n))}\ (mod\ n)$ 。</p>
+<p>​        对于一些计数类题目，如果要计算乘方算式，根据欧拉定理，可以先把底数对 $p$ 取模、指数对 $\varphi(n)$ 取模。再计算乘方。</p>
+<p>​        特别的，<strong>当 $a,n$ 不一定互质且 $b&gt;\varphi(n)$ 时，有 $a^b\equiv a^{b\ mod\ \varphi(n)+\varphi(n)}\ (mod\ n)$ </strong>。这意味着即使底数和模数不互质，我们也有办法把指数的规模缩小到容易计算的范围内。上式可以通过寻找 $a^b\ mod\ n$ 的<strong>指数循环节</strong>证明。</p>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><h4 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h4><p><a href="http://poj.org/problem?id=3696" target="_blank" rel="noopener">题面</a></p>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>$x$ 个 $8$ 连在一起组成的正整数可以写成 $8<em>(10^x-1)/9$ 。题目要求一个最小的 $x$ 满足 $L|8</em>(10^x-1)/9$ 。</p>
+<p>设 $gcd(8,L)=d$ ，则 $\frac{L}{d}|\frac{8}{d}(10^x-1)/9$ 。由于 $\frac{L}{8}$ 与 $\frac{8}{d}$ 互质，所以 $\frac{L}{d}|(10^x-1)/9$ 。整理得到 $\frac{9L}{d}|10^x-1$ 。写成同余的形式 $10^x\equiv 1\ (mod\ \frac{9L}{d})$ 。</p>
+<p>写到这里我们想到欧拉定理的形式。</p>
+<ul>
+<li>对于 $gcd(10,\frac{9L}{d})!=1$ ，方程无解。</li>
+</ul>
+<p>证明：以上方程等价于 $10^x=m<em>\frac{9L}{d}+1$ ，所以 $gcd(10^x,\frac{9l}{d})=gcd(m</em>\frac{9l}{d}+1,\frac{9l}{d})=gcd(1,\frac{9l}{d})=1$ 。</p>
+<ul>
+<li>若 $a,n$ 互质，则满足 $a^x\equiv 1\ (mod\ n)$ 的最小正整数解 $x_0$ 一定是 $\varphi(n)$ 的约数。 </li>
+</ul>
+<p>证明：假设 $x_0\not|\ \varphi(n)$ ，则 $\varphi(n)=m<em>x_0+r\ (0&lt;r&lt;x_0)$ 。因为 $a^{\varphi(n)}\equiv 1\ (mod\ n)$ ，那么 $a^{m</em>x_0+r}\equiv 1\ (mod\ n)$ 。因为 $a^{x_0}\equiv 1\ (mod\ n)$ ，那么对上式化简得 $a^r\equiv 1\ (mod\ n)$ 。这与 $x_0$ 最小矛盾，假设不成立。原命题成立。</p>
+<p>因此我们只需要求出 $\varphi(\frac{9l}{d})$ ，然后枚举它的约数，用快速幂判断即可。</p>
+<p>时间复杂度： $o(\sqrt{L}\ log\ L)$ 。</p>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> del(a,i) memset(a,i,sizeof(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inl inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> il inl void</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> it inl int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ill inl ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ri re int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rl re ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mid ((l+r)&gt;&gt;1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lowbit(x) (x&amp;(-x))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;<span class="title">il</span> <span class="title">read</span>(<span class="title">T</span> &amp;<span class="title">x</span>)&#123;</span></span><br><span class="line">	<span class="keyword">int</span> f=<span class="number">1</span>;<span class="keyword">char</span> k=getchar();x=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(;k&gt;<span class="string">'9'</span>||k&lt;<span class="string">'0'</span>;k=getchar()) <span class="keyword">if</span>(k==<span class="string">'-'</span>) f=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span>(;k&gt;=<span class="string">'0'</span>&amp;&amp;k&lt;=<span class="string">'9'</span>;k=getchar()) x=(x&lt;&lt;<span class="number">3</span>)+(x&lt;&lt;<span class="number">1</span>)+k-<span class="string">'0'</span>;</span><br><span class="line">	x*=f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;<span class="title">il</span> <span class="title">print</span>(<span class="title">T</span> <span class="title">x</span>)&#123;</span></span><br><span class="line">	<span class="keyword">if</span>(x/<span class="number">10</span>) print(x/<span class="number">10</span>);</span><br><span class="line">	<span class="built_in">putchar</span>(x%<span class="number">10</span>+<span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">mul</span><span class="params">(ll a,ll b,ll mod)</span></span>&#123;<span class="keyword">long</span> <span class="keyword">double</span> c=<span class="number">1.</span>;<span class="keyword">return</span> (a*b-(ll)(c*a*b/mod)*mod)%mod;&#125;</span><br><span class="line"><span class="function">ill <span class="title">qpow</span><span class="params">(ll x,ll m,ll mod)</span></span>&#123;</span><br><span class="line">	ll res=<span class="number">1</span>,bas=x%mod;</span><br><span class="line">	<span class="keyword">while</span>(m)&#123;</span><br><span class="line">		<span class="keyword">if</span>(m&amp;<span class="number">1</span>) res=mul(res,bas,mod);</span><br><span class="line">		bas=mul(bas,bas,mod),m&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res%mod;</span><br><span class="line">&#125;</span><br><span class="line">ll n,cnt;</span><br><span class="line"><span class="function">ill <span class="title">gcd</span><span class="params">(ll x,ll y)</span></span>&#123;<span class="keyword">return</span> y==<span class="number">0</span>?x:gcd(y,x%y);&#125;</span><br><span class="line"><span class="function">ill <span class="title">phi</span><span class="params">(ll x)</span></span>&#123;</span><br><span class="line">	rl res=x;</span><br><span class="line">	<span class="keyword">for</span>(ri i=<span class="number">2</span>;i*i&lt;=x;++i)</span><br><span class="line">		<span class="keyword">if</span>(x%i==<span class="number">0</span>)&#123;</span><br><span class="line">			res=res/i*(i<span class="number">-1</span>);</span><br><span class="line">			<span class="keyword">while</span>(x%i==<span class="number">0</span>) x/=i;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">if</span>(x&gt;<span class="number">1</span>) res=res/x*(x<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">il <span class="title">solve</span><span class="params">(ll n)</span></span>&#123;</span><br><span class="line">	rl d=gcd(<span class="number">8</span>,n);</span><br><span class="line">	rl tmp=<span class="number">9</span>*n/d;</span><br><span class="line">	<span class="keyword">if</span>(gcd(tmp,<span class="number">10</span>)!=<span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">"Case %lld: 0\n"</span>,++cnt);</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		rl p=phi(tmp);</span><br><span class="line">		<span class="keyword">for</span>(ri i=<span class="number">1</span>;i&lt;=<span class="built_in">sqrt</span>(p);++i)</span><br><span class="line">			<span class="keyword">if</span>(p%i==<span class="number">0</span>&amp;&amp;qpow(<span class="number">10</span>,i,tmp)==<span class="number">1</span>)&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"Case %lld: %d\n"</span>,++cnt,i);</span><br><span class="line">				<span class="keyword">return</span> ;</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="keyword">for</span>(ri i=<span class="built_in">sqrt</span>(p);i&gt;<span class="number">1</span>;--i)</span><br><span class="line">			<span class="keyword">if</span>(p%i==<span class="number">0</span>&amp;&amp;qpow(<span class="number">10</span>,p/i,tmp)==<span class="number">1</span>)&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"Case %lld: %d\n"</span>,++cnt,p/i);</span><br><span class="line">				<span class="keyword">return</span> ;</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//	freopen(".in","r",stdin);</span></span><br><span class="line"><span class="comment">//	freopen(".out","w",stdout);</span></span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;n)!=EOF)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!n) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		solve(n);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="拓展欧几里得算法"><a href="#拓展欧几里得算法" class="headerlink" title="拓展欧几里得算法"></a>拓展欧几里得算法</h2><h3 id="Bezout定理"><a href="#Bezout定理" class="headerlink" title="Bezout定理"></a><strong>Bezout定理</strong></h3><p>​        对于任意整数 $a,b$ ，一定存在一对整数 $x,y$ 满足 $ax+by=gcd(a,b)$ 。</p>
+<p>证明：</p>
+<p>​        在欧几里得算法的最后一步，即 $b=0$ 时，显然有一对整数 $x=1,y=0$ ，使得 $a<em>1+0</em>0=gcd(a,0)$ 。</p>
+<p>​        若 $b&gt;0$ ，则 $gcd(a,b)=gcd(b,a\%b)$ 。</p>
+<p>​        假设存在一对整数 $x,y$ ，满足 $b<em>x+(a\%b)</em>y=gcd(b,a\%b)$ 。</p>
+<p>​        因为 $bx+(a\%b)y=bx+(a-b\lfloor a/b\rfloor)y=ay+b(x-\lfloor a/b\rfloor y)$ ，所以令 $x^{‘}=y,y^{‘}=x-\lfloor a/b\rfloor y$ ，就得到了 $ax^{‘}+by^{‘}=gcd(a,b)$ 。</p>
+<p>​        对欧几里得算法的递归过程应用数学归纳法，可知定理成立。</p>
+<p><strong>Bezout</strong>定理是按照欧几里得算法的思路证明的，且上述证明的同时给出了整数 $x,y$ 的计算方法。这种计算方法被称作<strong>拓展欧几里得算法</strong>。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">exgcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)&#123;x=<span class="number">1</span>,y=<span class="number">0</span>;<span class="keyword">return</span> a;&#125;</span><br><span class="line">    <span class="keyword">int</span> d=exgcd(b,a%b,x,y);</span><br><span class="line">    <span class="keyword">int</span> z=x;x=y,y=z-y*(a/b);</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述程序求出方程 $ax+by=gcd(a,b)$ 的一组特解 $x_0,y_0$ ，并返回 $a,b$ 的最大公约数 $d$ 。</p>
+<p>对于更一般的方程 $ax+by=c$ ，它有解当且仅当 $d|c,d=gcd(a,b)$ 。我们可以先求出 $ax+by=d$ 的一组特解 $x_0,y_0$ ，然后令 $x_0,y_0$ 同时乘上 $\frac{c}{d}$ ，就得到了 $ax+by=c$ 的一组特解 $\frac{c}{d}x_0,\frac{c}{d}y_0$ 。</p>
+<p>事实上，方程 $ax+by=c$ 的通解可以表示为： $x=\frac{c}{d}x_0+k\frac{b}{d},y=\frac{c}{d}y_0+k\frac{a}{d},k\in\N$ 。</p>
+<h3 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h3><h4 id="题面-1"><a href="#题面-1" class="headerlink" title="题面"></a>题面</h4><p><a href="https://www.luogu.org/problem/P1516" target="_blank" rel="noopener">题面</a></p>
+<h4 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h4><p>假设要跳 $x$ 次才能相遇，则题目等价于求一个最小的 $x$ ，使得 $a+nx\equiv b+mx\ (mod\ L)$ 。</p>
+<p>整理式子。</p>
+<p>$(n-m)x\equiv b-a\ (mod\ L)$ </p>
+<p>将同余号去掉，得 $x(n-m)+kL=b-a$ 。其中 $n-m,L,b-a$ 均为已知量，所以可以用 $exgcd$ 求解。</p>
+<p>注意到 $n-m$ 的符号不确定，所以在做题之前进行一下处理，先将 $n-m$ 变为正数，再将 $b-a$ 变为正数，最后再转换为二元一次方程求解。（注意要开 $long\ long$ ）</p>
+<h4 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> del(a,i) memset(a,i,sizeof(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inl inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> il inl void</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> it inl int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ill inl ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ri re int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rl re ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mid ((l+r)&gt;&gt;1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lowbit(x) (x&amp;(-x))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;<span class="title">il</span> <span class="title">read</span>(<span class="title">T</span> &amp;<span class="title">x</span>)&#123;</span></span><br><span class="line">	<span class="keyword">int</span> f=<span class="number">1</span>;<span class="keyword">char</span> k=getchar();x=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(;k&gt;<span class="string">'9'</span>||k&lt;<span class="string">'0'</span>;k=getchar()) <span class="keyword">if</span>(k==<span class="string">'-'</span>) f=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span>(;k&gt;=<span class="string">'0'</span>&amp;&amp;k&lt;=<span class="string">'9'</span>;k=getchar()) x=(x&lt;&lt;<span class="number">3</span>)+(x&lt;&lt;<span class="number">1</span>)+k-<span class="string">'0'</span>;</span><br><span class="line">	x*=f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;<span class="title">il</span> <span class="title">print</span>(<span class="title">T</span> <span class="title">x</span>)&#123;</span></span><br><span class="line">	<span class="keyword">if</span>(x/<span class="number">10</span>) print(x/<span class="number">10</span>);</span><br><span class="line">	<span class="built_in">putchar</span>(x%<span class="number">10</span>+<span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">mul</span><span class="params">(ll a,ll b,ll mod)</span></span>&#123;<span class="keyword">long</span> <span class="keyword">double</span> c=<span class="number">1.</span>;<span class="keyword">return</span> (a*b-(ll)(c*a*b/mod)*mod)%mod;&#125;</span><br><span class="line"><span class="function">it <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> m,<span class="keyword">int</span> mod)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> res=<span class="number">1</span>,bas=x%mod;</span><br><span class="line">	<span class="keyword">while</span>(m)&#123;</span><br><span class="line">		<span class="keyword">if</span>(m&amp;<span class="number">1</span>) res=(res*bas)%mod;</span><br><span class="line">		bas=(bas*bas)%mod,m&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res%mod;</span><br><span class="line">&#125;</span><br><span class="line">ll a,b,c,n,m,l,x,y;</span><br><span class="line"><span class="function">ill <span class="title">gcd</span><span class="params">(ll x,ll y)</span></span>&#123;<span class="keyword">return</span> y==<span class="number">0</span>?x:gcd(y,x%y);&#125;</span><br><span class="line"><span class="function">ill <span class="title">exgcd</span><span class="params">(ll a,ll b,ll &amp;x,ll &amp;y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!b)&#123;x=<span class="number">1</span>,y=<span class="number">0</span>;<span class="keyword">return</span> a;&#125;</span><br><span class="line">	rl d=exgcd(b,a%b,x,y);</span><br><span class="line">	rl z=x;x=y,y=z-(a/b)*y;</span><br><span class="line">	<span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//	freopen(".in","r",stdin);</span></span><br><span class="line"><span class="comment">//	freopen(".out","w",stdout);</span></span><br><span class="line">	read(a),read(b),read(n),read(m),read(l);</span><br><span class="line">	c=b-a,a=n-m,b=l;</span><br><span class="line">	<span class="keyword">if</span>(a&lt;<span class="number">0</span>) a=-a,c=-c,c=(c%l+l)%l;</span><br><span class="line">	rl d=gcd(a,b);</span><br><span class="line">	<span class="keyword">if</span>(c%d!=<span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">"Impossible"</span>);</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		exgcd(a,b,x,y);</span><br><span class="line">		x=<span class="number">1l</span>l*x*c/d;ri mod=b/d;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%lld"</span>,(x%mod+mod)%mod);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="乘法逆元"><a href="#乘法逆元" class="headerlink" title="乘法逆元"></a>乘法逆元</h3><p>若整数 $b,m$ 互质，并且 $b|a$ ，则存在一个整数 $x$ ，使得 $a/b\equiv a<em>x\ (mod\ m)$ 。称<em>*$x$ 为 $b$ 的模 $m$ 的乘法逆元</em></em>。记为 $b^{-1}(mod\ m)$ 。</p>
+<p>因为 $a/b\equiv a<em>b^{-1}\equiv a/b</em>b<em>b^{-1}(mod\ m)$ ，所以 $b</em>b^{-1}\equiv 1(mod\ m)$ 。</p>
+<p>如果 $m$ 为质数（此时用 $p$ 代替 $m$ ），并且 $b&lt;p$ ，根据费马小定理， $b^{p-1}\equiv1(mod\ p)$ ，即 $b<em>b^{p-2}\equiv1(mod\ p)$ 。因此，<em>*当模数 $p$ 为质数时， $b^{p-2}$ 即为 $b$ 的乘法逆元</em></em>。</p>
+<p>如果只是保证 $b,m$ 互质，那么乘法逆元可通过<strong>求解同余方程 $b*x\equiv 1(mod\ m)$</strong>得到</p>
+<p>运用乘法逆元，我们在计数类问题中遇到 $a/b$ 这样的除法算式，也可以先把 $a,b$ 各自对模数 $p$ 取模，再计算 $a*b^{-1}(mod\ p)$ 作为最终结果。当然，前提是必须保证  $b,p$ 互质。</p>
+<h2 id="线性同余方程"><a href="#线性同余方程" class="headerlink" title="线性同余方程"></a>线性同余方程</h2><p>给定正数 $a,b,m$ ，求一个整数 $x$ 满足 $a*x\equiv b(mod\ m)$ ，或者给出无解。因为未知数的指数为 $1$ ，所以我们称之为一次同余方程，也称为线性同余方程。</p>
+<p>$a<em>x\equiv b(mod\ m)$ 等价于 $a</em>x-b$ 是 $m$ 的倍数，不放设为 $-y$ 倍。于是该方程可以改写为 $a<em>x+m</em>y=b$ 。</p>
+<p>线性同余方程有解当且仅当 $gcd(a,m)|b$ 。</p>
+<h3 id="中国剩余定理"><a href="#中国剩余定理" class="headerlink" title="中国剩余定理"></a>中国剩余定理</h3><p>设 $m_1,m_2,\cdots,m_n$ 是两两互质的整数， $m=\prod\limits_{i=1}^n m_i$ ， $M_i=m/m_i$ ， $t_i$ 是线性同余方程 $M_it_i\equiv 1(mod\ m_i)$ 的一个解。对于任意的 $n$ 个整数 $a_1,a_2,\cdots,a_n$ ，方程组 $\left\{\begin{matrix}<br> x\equiv a_1(mod\ m_1)\\<br> x\equiv a_2(mod\ m_2)\\<br>\cdots\\<br> x\equiv a_2(mod\ m_3)\\<br>\end{matrix}\right.$ 有整数解，解为 $x=\sum\limits_{i=1}^n a_i M_i t_i$ 。</p>
+<p>证明：</p>
+<p>​        因为 $M_i=M/m_i$ ，是除 $m_i$ 外所有模数的倍数，所以 $\forall k\not= i,a_i M_i t_i\equiv 0(mod\ m_k)$ 。又因为 $a_iM_it_i\equiv a_i(mod\ m_i)$ ，所以带入 $x=\sum\limits_{i=1}^n a_i M_i t_i$ ，原方程组成立。</p>
+<h3 id="拓展中国剩余定理"><a href="#拓展中国剩余定理" class="headerlink" title="拓展中国剩余定理"></a>拓展中国剩余定理</h3><p>已知方程组 $\left\{\begin{matrix}<br> x\equiv a_1(mod\ m_1)\\<br> x\equiv a_2(mod\ m_2)\\<br>\cdots\\<br> x\equiv a_2(mod\ m_3)\\<br>\end{matrix}\right.$ ，求一个最小的 $x$ 使得 $\forall i\in [1,n],x\equiv a_i\ (mod\ m_i)$ ，或给出无解。</p>
+<p>假设前 $k-1$ 个方程求出的解为 $x$ 。记 $m=lcm(m_1,m_2,\cdots,m_{k-1})$ 。</p>
+<p>则 $x+i*m,i\in\Z$ 是前 $k-1$ 个方程的通解。</p>
+<p>考虑第 $k$ 个方程，求出一个 $t$ ，使得 $x+t*m\equiv a_k\ (mod\ m_k)$ 。明显，这是一个线性同余方程，可以用拓欧判断有解。</p>
+<p>若有解，则 $x^{‘}=x+t*m$ 是前 $k$ 个方程的一个解。</p>
+<p>综上所述，我们使用 $n$ 次拓欧即可算出整个方程的解。</p>
+<h4 id="例题-2"><a href="#例题-2" class="headerlink" title="例题"></a>例题</h4><p><a href="https://www.luogu.org/problem/P4777" target="_blank" rel="noopener">P4777 【模板】扩展中国剩余定理（EXCRT）</a></p>
+<h4 id="Code-2"><a href="#Code-2" class="headerlink" title="Code"></a>Code</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> del(a,i) memset(a,i,sizeof(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inl inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> il inl void</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> it inl int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ill inl ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ri re int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rl re ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mid ((l+r)&gt;&gt;1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lowbit(x) (x&amp;(-x))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;<span class="title">il</span> <span class="title">read</span>(<span class="title">T</span> &amp;<span class="title">x</span>)&#123;</span></span><br><span class="line">	<span class="keyword">int</span> f=<span class="number">1</span>;<span class="keyword">char</span> k=getchar();x=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(;k&gt;<span class="string">'9'</span>||k&lt;<span class="string">'0'</span>;k=getchar()) <span class="keyword">if</span>(k==<span class="string">'-'</span>) f=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span>(;k&gt;=<span class="string">'0'</span>&amp;&amp;k&lt;=<span class="string">'9'</span>;k=getchar()) x=(x&lt;&lt;<span class="number">3</span>)+(x&lt;&lt;<span class="number">1</span>)+k-<span class="string">'0'</span>;</span><br><span class="line">	x*=f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;<span class="title">il</span> <span class="title">print</span>(<span class="title">T</span> <span class="title">x</span>)&#123;</span></span><br><span class="line">	<span class="keyword">if</span>(x/<span class="number">10</span>) print(x/<span class="number">10</span>);</span><br><span class="line">	<span class="built_in">putchar</span>(x%<span class="number">10</span>+<span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">mul</span><span class="params">(ll a,ll b,ll mod)</span></span>&#123;<span class="keyword">long</span> <span class="keyword">double</span> c=<span class="number">1.</span>;<span class="keyword">return</span> (a*b-(ll)(c*a*b/mod)*mod)%mod;&#125;</span><br><span class="line"><span class="function">it <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> m,<span class="keyword">int</span> mod)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> res=<span class="number">1</span>,bas=x%mod;</span><br><span class="line">	<span class="keyword">while</span>(m)&#123;</span><br><span class="line">		<span class="keyword">if</span>(m&amp;<span class="number">1</span>) res=(<span class="number">1l</span>l*res*bas)%mod;</span><br><span class="line">		bas=(<span class="number">1l</span>l*bas*bas)%mod,m&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line">ll a[MAXN],b[MAXN];</span><br><span class="line"><span class="function">ill <span class="title">exgcd</span><span class="params">(ll a,ll b,ll &amp;x,ll &amp;y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!b)&#123;x=<span class="number">1</span>,y=<span class="number">0</span>;<span class="keyword">return</span> a;&#125;</span><br><span class="line">	rl d=exgcd(b,a%b,x,y);</span><br><span class="line">	rl z=x;x=y,y=z-y*(a/b);</span><br><span class="line">	<span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ill <span class="title">excrt</span><span class="params">()</span></span>&#123;</span><br><span class="line">	rl x,y,m=a[<span class="number">1</span>],res=b[<span class="number">1</span>];<span class="comment">//第一个方程特判</span></span><br><span class="line">	<span class="keyword">for</span>(ri i=<span class="number">2</span>;i&lt;=n;++i)&#123;</span><br><span class="line">		rl a1=m,b1=a[i],c=(b[i]-res%b1+b1)%b1;<span class="comment">//解方程 ax≡c(mod b)</span></span><br><span class="line">		rl d=exgcd(a1,b1,x,y),bg=b1/d;</span><br><span class="line">		<span class="keyword">if</span>(c%d) <span class="keyword">return</span> <span class="number">-1</span>;<span class="comment">//判断无解</span></span><br><span class="line">		x=mul(x,c/d,bg);<span class="comment">//实际的解</span></span><br><span class="line">		res+=x*m;</span><br><span class="line">		m*=bg;<span class="comment">//更新x和m</span></span><br><span class="line">		res=(res%m+m)%m;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//	freopen(".in","r",stdin);</span></span><br><span class="line"><span class="comment">//	freopen(".out","w",stdout);</span></span><br><span class="line">	read(n);</span><br><span class="line">	<span class="keyword">for</span>(ri i=<span class="number">1</span>;i&lt;=n;++i) read(a[i]),read(b[i]);</span><br><span class="line">	print(excrt());</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/02/互质与欧拉函数学习笔记/" rel="next" title="互质与欧拉函数学习笔记">
+                <i class="fa fa-chevron-left"></i> 互质与欧拉函数学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpg" alt="TheShadow">
+            
+              <p class="site-author-name" itemprop="name">TheShadow</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#同余学习笔记"><span class="nav-number">1.</span> <span class="nav-text">同余学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#欧拉定理"><span class="nav-number">1.1.</span> <span class="nav-text">欧拉定理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例题"><span class="nav-number">1.1.1.</span> <span class="nav-text">例题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题面"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Code"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">Code</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拓展欧几里得算法"><span class="nav-number">1.2.</span> <span class="nav-text">拓展欧几里得算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bezout定理"><span class="nav-number">1.2.1.</span> <span class="nav-text">Bezout定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例题-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">例题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题面-1"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution-1"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Code-1"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">Code</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#乘法逆元"><span class="nav-number">1.2.3.</span> <span class="nav-text">乘法逆元</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性同余方程"><span class="nav-number">1.3.</span> <span class="nav-text">线性同余方程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中国剩余定理"><span class="nav-number">1.3.1.</span> <span class="nav-text">中国剩余定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓展中国剩余定理"><span class="nav-number">1.3.2.</span> <span class="nav-text">拓展中国剩余定理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例题-2"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">例题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Code-2"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">Code</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TheShadow</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
