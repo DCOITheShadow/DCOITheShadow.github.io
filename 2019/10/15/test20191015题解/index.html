@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="TheShadow">
 <meta property="og:description" content="题面题面 $T1$Solution我们先不考虑期望怎么算，考虑最基础的表示方法。 我们设 $T$ 表示在某种特定情况下所用的时间，则有 $T=[t_2&amp;lt;t_1]+[t_3&amp;lt;t_1]+\cdots+[t_n&amp;lt;t_1]+1$ 。其中 $t_i$ 表示 $i$ 被取走的时间， $[a]$ 表示如果 $a$ 为真，返回 $1$ ，否则返回 $0$ 。 那么对于我们要求的期望，就是 $E(">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-15T08:38:28.698Z">
+<meta property="og:updated_time" content="2019-10-15T08:39:24.570Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="test20191015">
 <meta name="twitter:description" content="题面题面 $T1$Solution我们先不考虑期望怎么算，考虑最基础的表示方法。 我们设 $T$ 表示在某种特定情况下所用的时间，则有 $T=[t_2&amp;lt;t_1]+[t_3&amp;lt;t_1]+\cdots+[t_n&amp;lt;t_1]+1$ 。其中 $t_i$ 表示 $i$ 被取走的时间， $[a]$ 表示如果 $a$ 为真，返回 $1$ ，否则返回 $0$ 。 那么对于我们要求的期望，就是 $E(">
@@ -333,7 +333,7 @@
 <p>对于每一个 $x$ ，我们一定可以得到一个确定的序列，这样我们只需要判断在 $m$ 组之内，将序列分完的，区间的最大值最小为多少。</p>
 <p>这是一个经典问题，可以直接贪心求解（能放就放，没法放就新开一个）。</p>
 <p>但是由于 $nm$ 是 $10^8$ ，带一个 $\log$ 没法跑，考虑优化。</p>
-<p>我们有这样一个结论：<strong>在随机情况下，一个排列的第 $i$ 个数比前面的 $i-1$ 个都要小，这样的 $i$ 的个数是 $\sum\frac{1}{i}$ **，这是</strong>调和级数**，为 $\ln n$ 。</p>
+<p>我们有这样一个结论：<strong>在随机情况下，一个排列的第 $i$ 个数比前面的 $i-1$ 个都要小，这样的 $i$ 的个数是</strong> $\sum\frac{1}{i}$ ，这是<strong>调和级数</strong>，为 $\ln n$ 。</p>
 <p>我们记 $F(i)$ 表示当 $x=i$ 时，我们得到的答案。</p>
 <p>那么对于一个答案序列 $F$ ，我们在随机的情况下遍历这些 $i$ ，如果最大值最小为 $ans-1$ 能够成立时，我们再进行二分找出当前的答案。这样的 $i$ 只有 $\ln m$ 个。</p>
 <p>时间复杂度： $O(nm+n\ln m\log_2 n)$ 。</p>
