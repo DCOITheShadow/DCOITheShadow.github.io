@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next1.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next1.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="闲扯好久没有写闲扯了 这道题从昨天开始改，一直没过，突然间看到一篇题解，恍然大悟，终于改过了。。。 我的内心：mmp，这hs出题人 题面P1084 疫情控制 Solution因为可以同时移动，而且询问最少需要多久，更重要的是答案具有单调性，所以妥妥的二分答案。 那么问题就变成了怎么判断在 $lim$ 的时限内，完成对叶节点的管控。 首先，我们有一个贪心的想法：对于一个点，如果我们肯定要将它尽量的向">
+<meta property="og:type" content="article">
+<meta property="og:title" content="P1084 疫情控制">
+<meta property="og:url" content="https://DCOITheShadow.github.io/2019/10/16/P1084-疫情控制/index.html">
+<meta property="og:site_name" content="TheShadow">
+<meta property="og:description" content="闲扯好久没有写闲扯了 这道题从昨天开始改，一直没过，突然间看到一篇题解，恍然大悟，终于改过了。。。 我的内心：mmp，这hs出题人 题面P1084 疫情控制 Solution因为可以同时移动，而且询问最少需要多久，更重要的是答案具有单调性，所以妥妥的二分答案。 那么问题就变成了怎么判断在 $lim$ 的时限内，完成对叶节点的管控。 首先，我们有一个贪心的想法：对于一个点，如果我们肯定要将它尽量的向">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-16T12:58:05.904Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="P1084 疫情控制">
+<meta name="twitter:description" content="闲扯好久没有写闲扯了 这道题从昨天开始改，一直没过，突然间看到一篇题解，恍然大悟，终于改过了。。。 我的内心：mmp，这hs出题人 题面P1084 疫情控制 Solution因为可以同时移动，而且询问最少需要多久，更重要的是答案具有单调性，所以妥妥的二分答案。 那么问题就变成了怎么判断在 $lim$ 的时限内，完成对叶节点的管控。 首先，我们有一个贪心的想法：对于一个点，如果我们肯定要将它尽量的向">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://DCOITheShadow.github.io/2019/10/16/P1084-疫情控制/">
+
+
+
+
+
+  <title>P1084 疫情控制 | TheShadow</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TheShadow</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/10/16/P1084-疫情控制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TheShadow">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TheShadow">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">P1084 疫情控制</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-16T20:56:23+08:00">
+                2019-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="闲扯"><a href="#闲扯" class="headerlink" title="闲扯"></a>闲扯</h1><p><del>好久没有写闲扯了</del></p>
+<p>这道题从昨天开始改，一直没过，突然间看到一篇题解，恍然大悟，终于改过了。。。</p>
+<p><del>我的内心：mmp，这hs出题人</del></p>
+<h1 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h1><p><a href="https://www.luogu.org/problem/P1084" target="_blank" rel="noopener">P1084 疫情控制</a></p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>因为可以同时移动，而且询问最少需要多久，更重要的是答案具有单调性，所以妥妥的二分答案。</p>
+<p>那么问题就变成了怎么判断在 $lim$ 的时限内，完成对叶节点的管控。</p>
+<p>首先，我们有一个贪心的想法：对于一个点，如果我们肯定要将它尽量的向上放。因为深度越小，能管控的叶子节点的数目一定是单调不减的。</p>
+<p>然后我们需要分一下情况来讨论。</p>
+<ol>
+<li>如果当前节点不能到达根结点，那么我们就跳到第一个能跳到的节点。</li>
+<li>如果刚好能跳到根结点，那么我们就跳到这条链上根结点的子节点。</li>
+<li>如果能跳到根结点，但是剩余的时间内没法跳到这条链上根结点的子节点，且前两种情况没有将它所在的子树中的叶节点全部管控，就跳回去。</li>
+</ol>
+<p>剩下的根结点的子树中，如果还有叶节点没管控完的，我们就找剩下的，能跨过根结点的节点中，离它最近的一个。</p>
+<p>为了方便处理叶节点是否管控完，我们先记录一下每一个点为根，包含了几个叶节点，然后用树状数组维护一下子树中已经管控了几个点（利用 $dfn$ 的性质）即可。</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> del(a,i) memset(a,i,sizeof(a))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inl inline</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> il inl void</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> it inl int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ill inl ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ri re int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rl re ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mid ((l+r)&gt;&gt;1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lowbit(x) (x&amp;(-x))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;<span class="title">il</span> <span class="title">read</span>(<span class="title">T</span> &amp;<span class="title">x</span>)&#123;</span></span><br><span class="line">	<span class="keyword">int</span> f=<span class="number">1</span>;<span class="keyword">char</span> k=getchar();x=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(;k&gt;<span class="string">'9'</span>||k&lt;<span class="string">'0'</span>;k=getchar()) <span class="keyword">if</span>(k==<span class="string">'-'</span>) f=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span>(;k&gt;=<span class="string">'0'</span>&amp;&amp;k&lt;=<span class="string">'9'</span>;k=getchar()) x=(x&lt;&lt;<span class="number">3</span>)+(x&lt;&lt;<span class="number">1</span>)+k-<span class="string">'0'</span>;</span><br><span class="line">	x*=f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;<span class="title">il</span> _<span class="title">print</span>(<span class="title">T</span> <span class="title">x</span>)&#123;</span></span><br><span class="line">	<span class="keyword">if</span>(x/<span class="number">10</span>) _print(x/<span class="number">10</span>);</span><br><span class="line">	<span class="built_in">putchar</span>(x%<span class="number">10</span>+<span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;<span class="title">il</span> <span class="title">print</span>(<span class="title">T</span> <span class="title">x</span>)&#123;</span></span><br><span class="line">	<span class="keyword">if</span>(x&lt;<span class="number">0</span>) <span class="built_in">putchar</span>(<span class="string">'-'</span>),x=-x;</span><br><span class="line">	_print(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">mul</span><span class="params">(ll a,ll b,ll mod)</span></span>&#123;<span class="keyword">long</span> <span class="keyword">double</span> c=<span class="number">1.</span>;<span class="keyword">return</span> (a*b-(ll)(c*a*b/mod)*mod)%mod;&#125;</span><br><span class="line"><span class="function">it <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> m,<span class="keyword">int</span> mod)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> res=<span class="number">1</span>,bas=x%mod;</span><br><span class="line">	<span class="keyword">while</span>(m)&#123;</span><br><span class="line">		<span class="keyword">if</span>(m&amp;<span class="number">1</span>) res=(<span class="number">1l</span>l*res*bas)%mod;</span><br><span class="line">		bas=(<span class="number">1l</span>l*bas*bas)%mod,m&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">5e4</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,u,v,d,head[MAXN],num_edge,deg,num[MAXN],army[MAXN];</span><br><span class="line">ll l,r,dis[MAXN];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> next,to,dis;</span><br><span class="line">	Edge()&#123;&#125;</span><br><span class="line">	Edge(<span class="keyword">int</span> next,<span class="keyword">int</span> to,<span class="keyword">int</span> dis):next(next),to(to),dis(dis)&#123;&#125;</span><br><span class="line">&#125;edge[MAXN&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="function">il <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> dis)</span></span>&#123;</span><br><span class="line">	edge[++num_edge]=Edge(head[u],v,dis),head[u]=num_edge;</span><br><span class="line">	edge[++num_edge]=Edge(head[v],u,dis),head[v]=num_edge;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> dep[MAXN],f[MAXN][<span class="number">18</span>],lg2[MAXN],dfn[MAXN],sz[MAXN],cnt;</span><br><span class="line"><span class="function">il <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> fa)</span></span>&#123;<span class="comment">// get dis and num.</span></span><br><span class="line">	ri fla=<span class="number">0</span>;f[u][<span class="number">0</span>]=fa,dep[u]=dep[fa]+<span class="number">1</span>,dfn[u]=++cnt,sz[u]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(ri i=<span class="number">1</span>;(<span class="number">1</span>&lt;&lt;i)&lt;=dep[fa];++i) f[u][i]=f[f[u][i<span class="number">-1</span>]][i<span class="number">-1</span>];</span><br><span class="line">	<span class="keyword">for</span>(ri i=head[u];i;i=edge[i].next)&#123;</span><br><span class="line">		<span class="keyword">if</span>(edge[i].to==fa) <span class="keyword">continue</span>;fla=<span class="number">1</span>;</span><br><span class="line">		dis[edge[i].to]=dis[u]+edge[i].dis,DFS(edge[i].to,u);</span><br><span class="line">		num[u]+=num[edge[i].to],sz[u]+=sz[edge[i].to];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(!fla) num[u]=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">it <span class="title">find</span><span class="params">(<span class="keyword">int</span> u,ll dist)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(ri i=lg2[dep[u]];i&gt;=<span class="number">0</span>;--i)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!f[u][i]) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">if</span>(dis[u]-dis[f[u][i]]&lt;=dist) dist-=dis[u]-dis[f[u][i]],u=f[u][i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> u;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> get[MAXN],tr[MAXN],T[MAXN];</span><br><span class="line"><span class="function">il <span class="title">updata</span><span class="params">(<span class="keyword">int</span> pos,<span class="keyword">int</span> k)</span></span>&#123;<span class="keyword">for</span>(;pos&lt;=n;pos+=lowbit(pos)) T[pos]+=k;&#125;</span><br><span class="line"><span class="function">it <span class="title">query</span><span class="params">(<span class="keyword">int</span> pos)</span></span>&#123;ri res=<span class="number">0</span>;<span class="keyword">for</span>(;pos;pos-=lowbit(pos)) res+=T[pos];<span class="keyword">return</span> res;&#125;</span><br><span class="line"><span class="built_in">multiset</span>&lt;ll&gt; s;</span><br><span class="line"><span class="function">il <span class="title">DFS1</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> fa,<span class="keyword">int</span> ty)</span></span>&#123;</span><br><span class="line">	ri fla=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(ri i=head[u];i;i=edge[i].next)&#123;</span><br><span class="line">		<span class="keyword">if</span>(edge[i].to==fa) <span class="keyword">continue</span>;</span><br><span class="line">		DFS1(edge[i].to,u,ty|tr[u]);</span><br><span class="line">		get[u]+=get[edge[i].to],fla=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(!fla) get[u]=ty|tr[u];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> a[MAXN],tot;</span><br><span class="line"><span class="function">inl <span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;<span class="keyword">return</span> dis[x]&lt;dis[y];&#125;</span><br><span class="line"><span class="function">it <span class="title">check</span><span class="params">(ll lim)</span></span>&#123;</span><br><span class="line">	s.clear(),del(tr,<span class="number">0</span>),del(get,<span class="number">0</span>),del(T,<span class="number">0</span>),tot=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(ri i=<span class="number">1</span>;i&lt;=m;++i)&#123;</span><br><span class="line">		u=army[i];</span><br><span class="line">		<span class="keyword">if</span>(lim&gt;dis[u]) s.insert(lim-dis[u]);</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			ri pos=find(u,min(dis[u]<span class="number">-1</span>,lim));</span><br><span class="line">			ri tot=query(dfn[u]+sz[u]<span class="number">-1</span>)-query(dfn[u]);</span><br><span class="line">			<span class="keyword">if</span>(!tr[pos]&amp;&amp;num[u]&gt;tot) tr[pos]=<span class="number">1</span>,updata(dfn[u],num[u]-tot);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(ri i=<span class="number">1</span>;i&lt;=m;++i)&#123;</span><br><span class="line">		u=army[i];</span><br><span class="line">		<span class="keyword">if</span>(lim&gt;dis[u])&#123;</span><br><span class="line">			ri pos=find(u,min(dis[u]<span class="number">-1</span>,lim));</span><br><span class="line">			ri tot=query(dfn[u]+sz[u]<span class="number">-1</span>)-query(dfn[u]);</span><br><span class="line">			<span class="keyword">if</span>(!tr[pos]&amp;&amp;num[u]&gt;tot&amp;&amp;lim-dis[u]&lt;dis[pos]) tr[pos]=<span class="number">1</span>,updata(dfn[u],num[u]-tot),s.erase(s.find(lim-dis[u]));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	DFS1(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">for</span>(ri i=head[<span class="number">1</span>];i;i=edge[i].next)</span><br><span class="line">		<span class="keyword">if</span>(get[edge[i].to]!=num[edge[i].to])&#123;</span><br><span class="line">			<span class="built_in">multiset</span>&lt;ll&gt;::iterator ite=s.lower_bound(dis[edge[i].to]);</span><br><span class="line">			<span class="keyword">if</span>(ite==s.end()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">			s.erase(ite);</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">inl <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;<span class="keyword">return</span> dis[x]&gt;dis[y];&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//	freopen("testdata.in","r",stdin);</span></span><br><span class="line"><span class="comment">//	freopen(".out","w",stdout);</span></span><br><span class="line">	read(n);</span><br><span class="line">	<span class="keyword">for</span>(ri i=<span class="number">1</span>;i&lt;n;++i)&#123;</span><br><span class="line">		read(u),read(v),read(d),add_edge(u,v,d);</span><br><span class="line">		<span class="keyword">if</span>(u==<span class="number">1</span>||v==<span class="number">1</span>) ++deg;</span><br><span class="line">		r+=d;</span><br><span class="line">	&#125;</span><br><span class="line">	read(m);</span><br><span class="line">	<span class="keyword">for</span>(ri i=<span class="number">1</span>;i&lt;=m;++i) read(army[i]);</span><br><span class="line">	<span class="keyword">if</span>(deg&gt;m) <span class="keyword">return</span> <span class="built_in">puts</span>(<span class="string">"-1"</span>),<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(ri i=<span class="number">2</span>;i&lt;=n;++i) lg2[i]=lg2[i&gt;&gt;<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">	DFS(<span class="number">1</span>,<span class="number">0</span>),sort(army+<span class="number">1</span>,army+<span class="number">1</span>+m,cmp);</span><br><span class="line">	<span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">		<span class="keyword">if</span>(check(mid)) r=mid;</span><br><span class="line">		<span class="keyword">else</span> l=mid+<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	print(l);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在考虑不同情况时一定要想好怎么才是最优的，不然写着写着就挂了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/16/test20191016题解/" rel="next" title="test20191016">
+                <i class="fa fa-chevron-left"></i> test20191016
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpg" alt="TheShadow">
+            
+              <p class="site-author-name" itemprop="name">TheShadow</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#闲扯"><span class="nav-number">1.</span> <span class="nav-text">闲扯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题面"><span class="nav-number">2.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Code"><span class="nav-number">4.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TheShadow</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
