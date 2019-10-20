@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="闲扯刚学斜率 $DP$ ，做了两道例题，感觉有点感觉了，还不错。 这是我第一道没看题解自己做出来的题，写篇题解记录一下。 题面P3628 [APIO2010]特别行动队 Solution先考虑朴素 $DP$ 。 我们可以比较简单的推出以下方程：  $ dp_i=\min_{j=0}^{i-1}(dp_j+a(sum_i-sum_j)^2+b(sum_i-sum_j)+c$   如果直接枚举，复杂度">
+<meta name="description" content="闲扯刚学斜率 $DP$ ，做了两道例题，感觉有点感觉了，还不错。 这是我第一道没看题解自己做出来的题，写篇题解记录一下。 题面P3628 [APIO2010]特别行动队 Solution先考虑朴素 $DP$ 。 我们可以比较简单的推出以下方程：  $ dp_i=\min_{j=0}^{i-1}(dp_j+a(sum_i-sum_j)^2+b(sum_i-sum_j)+c)$   如果直接枚举，复杂">
 <meta property="og:type" content="article">
 <meta property="og:title" content="P3628 [APIO2010]特别行动队">
 <meta property="og:url" content="https://DCOITheShadow.github.io/2019/09/11/P3628 [APIO2010]特别行动队/index.html">
 <meta property="og:site_name" content="TheShadow">
-<meta property="og:description" content="闲扯刚学斜率 $DP$ ，做了两道例题，感觉有点感觉了，还不错。 这是我第一道没看题解自己做出来的题，写篇题解记录一下。 题面P3628 [APIO2010]特别行动队 Solution先考虑朴素 $DP$ 。 我们可以比较简单的推出以下方程：  $ dp_i=\min_{j=0}^{i-1}(dp_j+a(sum_i-sum_j)^2+b(sum_i-sum_j)+c$   如果直接枚举，复杂度">
+<meta property="og:description" content="闲扯刚学斜率 $DP$ ，做了两道例题，感觉有点感觉了，还不错。 这是我第一道没看题解自己做出来的题，写篇题解记录一下。 题面P3628 [APIO2010]特别行动队 Solution先考虑朴素 $DP$ 。 我们可以比较简单的推出以下方程：  $ dp_i=\min_{j=0}^{i-1}(dp_j+a(sum_i-sum_j)^2+b(sum_i-sum_j)+c)$   如果直接枚举，复杂">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-24T13:38:53.131Z">
+<meta property="og:updated_time" content="2019-10-20T11:31:20.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="P3628 [APIO2010]特别行动队">
-<meta name="twitter:description" content="闲扯刚学斜率 $DP$ ，做了两道例题，感觉有点感觉了，还不错。 这是我第一道没看题解自己做出来的题，写篇题解记录一下。 题面P3628 [APIO2010]特别行动队 Solution先考虑朴素 $DP$ 。 我们可以比较简单的推出以下方程：  $ dp_i=\min_{j=0}^{i-1}(dp_j+a(sum_i-sum_j)^2+b(sum_i-sum_j)+c$   如果直接枚举，复杂度">
+<meta name="twitter:description" content="闲扯刚学斜率 $DP$ ，做了两道例题，感觉有点感觉了，还不错。 这是我第一道没看题解自己做出来的题，写篇题解记录一下。 题面P3628 [APIO2010]特别行动队 Solution先考虑朴素 $DP$ 。 我们可以比较简单的推出以下方程：  $ dp_i=\min_{j=0}^{i-1}(dp_j+a(sum_i-sum_j)^2+b(sum_i-sum_j)+c)$   如果直接枚举，复杂">
 
 
 
@@ -325,13 +325,13 @@
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>先考虑朴素 $DP$ 。</p>
 <p>我们可以比较简单的推出以下方程：</p>
 <ul>
-<li>$ dp_i=\min_{j=0}^{i-1}(dp_j+a(sum_i-sum_j)^2+b(sum_i-sum_j)+c$ </li>
+<li>$ dp_i=\min_{j=0}^{i-1}(dp_j+a(sum_i-sum_j)^2+b(sum_i-sum_j)+c)$ </li>
 </ul>
 <p>如果直接枚举，复杂度是 $\frac{n^2}{2}$ 的，对于本题一定会 $TLE$ 。</p>
 <p>考虑怎么优化。</p>
 <p>先将原式中的括号全部打开，得到下面的式子：</p>
 <ul>
-<li>$ dp_i=\min_{j=0}^{i-1}(dp_j+a\cdot sum_i^2-2a\cdot sum_j\cdot sum_i+a\cdot sum_j^2+b\cdot sum_i-b\cdot sum_j+c$ </li>
+<li>$ dp_i=\min_{j=0}^{i-1}(dp_j+a\cdot sum_i^2-2a\cdot sum_j\cdot sum_i+a\cdot sum_j^2+b\cdot sum_i-b\cdot sum_j+c)$ </li>
 </ul>
 <p>可以发现式中存在有同时与 $i$ 和 $j$ 有关的项，可以使用斜率优化。</p>
 <p>先将 $\min$ 去掉，并进行移项处理，将原式化为如下形式：</p>
@@ -461,7 +461,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
