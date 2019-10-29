@@ -382,7 +382,7 @@ Solution首先我们分情况讨论一下。
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P4588 [TJOI2018]数学计算/">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P4014 分配问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TheShadow">
@@ -401,7 +401,7 @@ Solution首先我们分情况讨论一下。
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/29/P4588 [TJOI2018]数学计算/" itemprop="url">P4588 [TJOI2018]数学计算</a></h1>
+                <a class="post-title-link" href="/2019/08/29/P4014 分配问题/" itemprop="url">P4014 分配问题</a></h1>
         
 
         <div class="post-meta">
@@ -453,14 +453,15 @@ Solution首先我们分情况讨论一下。
       
         
           
-          闲扯今天讲课 $jklover$ 巨佬讲到了这道题，结果 $ChiTongZ$ 和 $Glu_TtoNy$ 两位神仙一看就切了。。。
+          闲扯蒟蒻的第一道自己想出怎么建图的题！！虽然是一个没什么技术含量的图 想了想，还是写篇题解纪念一下。
 题面题面
-Solution用线段树维护连乘，初始时每个位置的值都为 $1$ 。
-如果第 $i$ 次为操作一，那么单点修改节点 $i$ 的值为 $m$ ，否则将节点 $
+Solution要求最小费用和最大费用，同时限制了流量，考虑费用流。
+虚拟一个超级源点，从这个点分别向 $N$ 个任务连一条流量为 $1$ ，费用为 $0$ 的边。
+虚拟一个超级汇点，才从
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/29/P4588 [TJOI2018]数学计算/#more" rel="contents">
+            <a class="btn" href="/2019/08/29/P4014 分配问题/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -642,7 +643,7 @@ Solution要找出一个点，使得 $\sum\limits_{j!=rt} dis_j\cdot c
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P2598 [ZJOI2009]狼和羊的故事/">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P2034 选择数字/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TheShadow">
@@ -661,7 +662,7 @@ Solution要找出一个点，使得 $\sum\limits_{j!=rt} dis_j\cdot c
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/29/P2598 [ZJOI2009]狼和羊的故事/" itemprop="url">P2598 [ZJOI2009]狼和羊的故事</a></h1>
+                <a class="post-title-link" href="/2019/08/29/P2034 选择数字/" itemprop="url">P2034 选择数字</a></h1>
         
 
         <div class="post-meta">
@@ -713,15 +714,14 @@ Solution要找出一个点，使得 $\sum\limits_{j!=rt} dis_j\cdot c
       
         
           
-          闲扯今天上课将网络流例题，难得的想出怎么建图的几个题之一。。
+          闲扯单调队列优化 $DP$ 的第一题，结果死在了一些很奇怪的操作上。。。
 题面题面
-Solution因为只有羊和狼两种生物，且不能分到同一个集合中，所以可以建立二分图。而我们要用最少的篱笆，将狼和羊分开，考虑最小割。
-虚拟一个超级源点，连向所有是狼的格子，流量为 $INF$ ，表示这个边不能割。
-虚拟一个超级汇
+Solution定义 $dp_i$ 表示考虑了前 $i$ 个数，能够选取的最大价值。
+因为最多只能连续选 $k$ 个，所以我们可以在 $[i-k,i-1]$ 中选取一个断点 $j$ ，表示这个点不选，那么此时 $dp
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/29/P2598 [ZJOI2009]狼和羊的故事/#more" rel="contents">
+            <a class="btn" href="/2019/08/29/P2034 选择数字/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -902,7 +902,7 @@ Solution题目分析/建图因为限制了方向，同时还限制了每一个�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P2034 选择数字/">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P2598 [ZJOI2009]狼和羊的故事/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TheShadow">
@@ -921,7 +921,7 @@ Solution题目分析/建图因为限制了方向，同时还限制了每一个�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/29/P2034 选择数字/" itemprop="url">P2034 选择数字</a></h1>
+                <a class="post-title-link" href="/2019/08/29/P2598 [ZJOI2009]狼和羊的故事/" itemprop="url">P2598 [ZJOI2009]狼和羊的故事</a></h1>
         
 
         <div class="post-meta">
@@ -973,145 +973,15 @@ Solution题目分析/建图因为限制了方向，同时还限制了每一个�
       
         
           
-          闲扯单调队列优化 $DP$ 的第一题，结果死在了一些很奇怪的操作上。。。
+          闲扯今天上课将网络流例题，难得的想出怎么建图的几个题之一。。
 题面题面
-Solution定义 $dp_i$ 表示考虑了前 $i$ 个数，能够选取的最大价值。
-因为最多只能连续选 $k$ 个，所以我们可以在 $[i-k,i-1]$ 中选取一个断点 $j$ ，表示这个点不选，那么此时 $dp
+Solution因为只有羊和狼两种生物，且不能分到同一个集合中，所以可以建立二分图。而我们要用最少的篱笆，将狼和羊分开，考虑最小割。
+虚拟一个超级源点，连向所有是狼的格子，流量为 $INF$ ，表示这个边不能割。
+虚拟一个超级汇
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/29/P2034 选择数字/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P1558 色板游戏/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="TheShadow">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TheShadow">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/29/P1558 色板游戏/" itemprop="url">P1558 色板游戏</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T19:43:41+08:00">
-                2019-08-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          闲扯一道线段树好题裸题
-顺便吐槽一下出题人的数据。。。
-最开始没看到 $A$ 可能大于 $B$ ，结果 $WA$ 了。。
-题面题面
-Solution看范围， $T\leq30$ ，发现可以用二进制表示是否包含每一种颜料，接下来的事就好办了。
-对于操作 $1$ ，是一个区间覆盖，直接将 $s$ 变成 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/29/P1558 色板游戏/#more" rel="contents">
+            <a class="btn" href="/2019/08/29/P2598 [ZJOI2009]狼和羊的故事/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1296,7 +1166,7 @@ Solution
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P1404 平均数/">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P1558 色板游戏/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TheShadow">
@@ -1315,7 +1185,7 @@ Solution
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/29/P1404 平均数/" itemprop="url">P1404 平均数</a></h1>
+                <a class="post-title-link" href="/2019/08/29/P1558 色板游戏/" itemprop="url">P1558 色板游戏</a></h1>
         
 
         <div class="post-meta">
@@ -1367,17 +1237,16 @@ Solution
       
         
           
-          闲扯蒟蒻又来做例题了。。。
-这道题调了半天，结果是维护前缀和的最小值的时候弄成了原数组的值。。。。
+          闲扯一道线段树好题裸题
+顺便吐槽一下出题人的数据。。。
+最开始没看到 $A$ 可能大于 $B$ ，结果 $WA$ 了。。
 题面题面
-Solution使用二分答案，将求解转化为判定。
-对于当前二分出的平均值，我们要确定它的合法性，我们可以将所有数先减去平均值。
-这时我们相当于是要找去一段区间，使得它的和大于 $0$ 。
-我
+Solution看范围， $T\leq30$ ，发现可以用二进制表示是否包含每一种颜料，接下来的事就好办了。
+对于操作 $1$ ，是一个区间覆盖，直接将 $s$ 变成 
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/29/P1404 平均数/#more" rel="contents">
+            <a class="btn" href="/2019/08/29/P1558 色板游戏/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1508,6 +1377,138 @@ Solution因为两组关系里面都知道书，所以书放中间，两边分别
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/08/29/P1231 教辅的组成/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P1404 平均数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TheShadow">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TheShadow">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/29/P1404 平均数/" itemprop="url">P1404 平均数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T19:43:41+08:00">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          闲扯蒟蒻又来做例题了。。。
+这道题调了半天，结果是维护前缀和的最小值的时候弄成了原数组的值。。。。
+题面题面
+Solution使用二分答案，将求解转化为判定。
+对于当前二分出的平均值，我们要确定它的合法性，我们可以将所有数先减去平均值。
+这时我们相当于是要找去一段区间，使得它的和大于 $0$ 。
+我
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/29/P1404 平均数/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
