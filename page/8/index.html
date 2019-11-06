@@ -249,6 +249,136 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/09/01/P5021 赛道修建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TheShadow">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TheShadow">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/01/P5021 赛道修建/" itemprop="url">P5021 赛道修建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-01T20:39:28+08:00">
+                2019-09-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          闲扯$NOIP2018$ 的 $D1T3$ ，咕了快一年了，终于过来做了。。
+题面题面
+Solution要让最小的最大，考虑二分答案。
+因为每条边只能走一次，所以每个节点最多只能向上传递一段赛道。
+在子树中，如果一条赛道已经达到了我们的要求，我们就直接将其纳入最后的方案中。因为如果继续向它里面加赛道
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/09/01/P5021 赛道修建/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/09/01/P4551 最长异或路径/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -508,7 +638,7 @@ $u$ 到 $v$ 的路径权值的异或和我们可以拆分一下，即 $dis_{u,v}
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P4588 [TJOI2018]数学计算/">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P3931 SAC E#1 - 一道难题 Tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TheShadow">
@@ -527,7 +657,7 @@ $u$ 到 $v$ 的路径权值的异或和我们可以拆分一下，即 $dis_{u,v}
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/29/P4588 [TJOI2018]数学计算/" itemprop="url">P4588 [TJOI2018]数学计算</a></h1>
+                <a class="post-title-link" href="/2019/08/29/P3931 SAC E#1 - 一道难题 Tree/" itemprop="url">P3931 SAC E#1 - 一道难题 Tree</a></h1>
         
 
         <div class="post-meta">
@@ -579,143 +709,13 @@ $u$ 到 $v$ 的路径权值的异或和我们可以拆分一下，即 $dis_{u,v}
       
         
           
-          闲扯今天讲课 $jklover$ 巨佬讲到了这道题，结果 $ChiTongZ$ 和 $Glu_TtoNy$ 两位神仙一看就切了。。。
+          闲扯为了学习最小割到了这道题，但是看题解的时候发现做法还有树形 $DP$ 毕竟没怎么认真想过题，写完最小割之后，顺手来了发树形 $DP$ ，然后就过了，感觉真爽啊~~
 题面题面
-Solution用线段树维护连乘，初始时每个位置的值都为 $1$ 。
-如果第 $i$ 次为操作一，那么单点修改节点 $i$ 的值为 $m$ ，否则将节点 $
+Solution解法一：最小割最大流因为要求是所有的叶节点都不能到达根结点，而且可以删除边，要求删边的最小代价，看着就很像
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/29/P4588 [TJOI2018]数学计算/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P4568 [JLOI2011]飞行路线/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="TheShadow">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TheShadow">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/29/P4568 [JLOI2011]飞行路线/" itemprop="url">P4568 [JLOI2011]飞行路线</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T19:43:41+08:00">
-                2019-08-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          闲扯听说这题是分层图板子题？？
-蒟蒻表示没学过啊，但是感觉直接拆点就可以了啊 $qwq$ 
-不是和 $NOI2019\ D1\ T1$ 一毛一样吗（雾）其实是由于那道题数据过水
-Solution光看题面，已经很明确的说明了要求最短路，但是有一个附加条件，可以有 $k$ 次乘坐航班不要钱这种好事我咋遇
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/29/P4568 [JLOI2011]飞行路线/#more" rel="contents">
+            <a class="btn" href="/2019/08/29/P3931 SAC E#1 - 一道难题 Tree/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1029,7 +1029,7 @@ Solution要求最小费用和最大费用，同时限制了流量，考虑费用
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P3931 SAC E#1 - 一道难题 Tree/">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P4588 [TJOI2018]数学计算/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TheShadow">
@@ -1048,7 +1048,7 @@ Solution要求最小费用和最大费用，同时限制了流量，考虑费用
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/29/P3931 SAC E#1 - 一道难题 Tree/" itemprop="url">P3931 SAC E#1 - 一道难题 Tree</a></h1>
+                <a class="post-title-link" href="/2019/08/29/P4588 [TJOI2018]数学计算/" itemprop="url">P4588 [TJOI2018]数学计算</a></h1>
         
 
         <div class="post-meta">
@@ -1100,13 +1100,14 @@ Solution要求最小费用和最大费用，同时限制了流量，考虑费用
       
         
           
-          闲扯为了学习最小割到了这道题，但是看题解的时候发现做法还有树形 $DP$ 毕竟没怎么认真想过题，写完最小割之后，顺手来了发树形 $DP$ ，然后就过了，感觉真爽啊~~
+          闲扯今天讲课 $jklover$ 巨佬讲到了这道题，结果 $ChiTongZ$ 和 $Glu_TtoNy$ 两位神仙一看就切了。。。
 题面题面
-Solution解法一：最小割最大流因为要求是所有的叶节点都不能到达根结点，而且可以删除边，要求删边的最小代价，看着就很像
+Solution用线段树维护连乘，初始时每个位置的值都为 $1$ 。
+如果第 $i$ 次为操作一，那么单点修改节点 $i$ 的值为 $m$ ，否则将节点 $
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/29/P3931 SAC E#1 - 一道难题 Tree/#more" rel="contents">
+            <a class="btn" href="/2019/08/29/P4588 [TJOI2018]数学计算/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1157,7 +1158,7 @@ Solution解法一：最小割最大流因为要求是所有的叶节点都不能
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P2986 [USACO10MAR]伟大的奶牛聚集Great Cow Gat…/">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P4568 [JLOI2011]飞行路线/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TheShadow">
@@ -1176,7 +1177,7 @@ Solution解法一：最小割最大流因为要求是所有的叶节点都不能
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/29/P2986 [USACO10MAR]伟大的奶牛聚集Great Cow Gat…/" itemprop="url">P2986 [USACO10MAR]伟大的奶牛聚集Great Cow Gat…</a></h1>
+                <a class="post-title-link" href="/2019/08/29/P4568 [JLOI2011]飞行路线/" itemprop="url">P4568 [JLOI2011]飞行路线</a></h1>
         
 
         <div class="post-meta">
@@ -1228,145 +1229,14 @@ Solution解法一：最小割最大流因为要求是所有的叶节点都不能
       
         
           
-          闲扯我做这道题的时候究极脑瘫。。
-第一次提交忘开 $long\ long$ ，只有 $50$ 分；
-第二次提交输出忘开 $long\ long$ ，只有 $70$ 分。。。
-无语至极。。
-题面题面
-Solution要找出一个点，使得 $\sum\limits_{j!=rt} dis_j\cdot c
+          闲扯听说这题是分层图板子题？？
+蒟蒻表示没学过啊，但是感觉直接拆点就可以了啊 $qwq$ 
+不是和 $NOI2019\ D1\ T1$ 一毛一样吗（雾）其实是由于那道题数据过水
+Solution光看题面，已经很明确的说明了要求最短路，但是有一个附加条件，可以有 $k$ 次乘坐航班不要钱这种好事我咋遇
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/29/P2986 [USACO10MAR]伟大的奶牛聚集Great Cow Gat…/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P2034 选择数字/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="TheShadow">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TheShadow">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/29/P2034 选择数字/" itemprop="url">P2034 选择数字</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T19:43:41+08:00">
-                2019-08-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          闲扯单调队列优化 $DP$ 的第一题，结果死在了一些很奇怪的操作上。。。
-题面题面
-Solution定义 $dp_i$ 表示考虑了前 $i$ 个数，能够选取的最大价值。
-因为最多只能连续选 $k$ 个，所以我们可以在 $[i-k,i-1]$ 中选取一个断点 $j$ ，表示这个点不选，那么此时 $dp
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/29/P2034 选择数字/#more" rel="contents">
+            <a class="btn" href="/2019/08/29/P4568 [JLOI2011]飞行路线/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1534,6 +1404,136 @@ Solution题目分析/建图因为限制了方向，同时还限制了每一个�
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/29/P2598 [ZJOI2009]狼和羊的故事/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TheShadow">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TheShadow">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/29/P2598 [ZJOI2009]狼和羊的故事/" itemprop="url">P2598 [ZJOI2009]狼和羊的故事</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T19:43:41+08:00">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          闲扯今天上课将网络流例题，难得的想出怎么建图的几个题之一。。
+题面题面
+Solution因为只有羊和狼两种生物，且不能分到同一个集合中，所以可以建立二分图。而我们要用最少的篱笆，将狼和羊分开，考虑最小割。
+虚拟一个超级源点，连向所有是狼的格子，流量为 $INF$ ，表示这个边不能割。
+虚拟一个超级汇
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/29/P2598 [ZJOI2009]狼和羊的故事/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1586,7 +1586,7 @@ Solution题目分析/建图因为限制了方向，同时还限制了每一个�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">87</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
