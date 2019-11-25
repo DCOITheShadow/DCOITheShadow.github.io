@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="闲扯今天的考试比昨天友好多了，起码大佬们讲的东西大多数都还是听得懂。 不过话说 $DC$ 少爷机还真是强啊，暴力跑过了 $8$ 个点。 题面$T1$又要维护连续编号的节点的子树和，又要支持单点修改，问题就变得十分不可描述起来，因为貌似没法用线段树之类的来一起维护。 考虑分块。将编号 $1\sim n$ 分为 $\sqrt{n}$ 块。 先用 $DFS$ 预处理出每个点的 $dfn$ 序以及从该点到">
+<meta name="description" content="CSP-S 2019 游记考完已经过了一周多了，终于还是滚来写游记了。 趁着成绩还没出来，心态还比较稳的时候，简单记录一下。 Day -inf整天在机房里刷题，划水，按时出去打球，生活过得轻松自在。 Day 0中午 $2:30$ 从学校出发，在车上看了 $40$ 分钟的番，但是网太差了， 选择睡觉。 大概睡了 $2$ 个小时最后，起来的时候脖子感觉废了一样，肯定是睡觉姿势不对。。。 到宾馆之后开始">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test20190830">
-<meta property="og:url" content="https://DCOITheShadow.github.io/2019/08/30/test20190830题解/index.html">
+<meta property="og:title" content="CSP-S 2019 游记">
+<meta property="og:url" content="https://DCOITheShadow.github.io/2019/11/25/CSP-S2019 游记/index.html">
 <meta property="og:site_name" content="TheShadow">
-<meta property="og:description" content="闲扯今天的考试比昨天友好多了，起码大佬们讲的东西大多数都还是听得懂。 不过话说 $DC$ 少爷机还真是强啊，暴力跑过了 $8$ 个点。 题面$T1$又要维护连续编号的节点的子树和，又要支持单点修改，问题就变得十分不可描述起来，因为貌似没法用线段树之类的来一起维护。 考虑分块。将编号 $1\sim n$ 分为 $\sqrt{n}$ 块。 先用 $DFS$ 预处理出每个点的 $dfn$ 序以及从该点到">
+<meta property="og:description" content="CSP-S 2019 游记考完已经过了一周多了，终于还是滚来写游记了。 趁着成绩还没出来，心态还比较稳的时候，简单记录一下。 Day -inf整天在机房里刷题，划水，按时出去打球，生活过得轻松自在。 Day 0中午 $2:30$ 从学校出发，在车上看了 $40$ 分钟的番，但是网太差了， 选择睡觉。 大概睡了 $2$ 个小时最后，起来的时候脖子感觉废了一样，肯定是睡觉姿势不对。。。 到宾馆之后开始">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-30T10:36:14.341Z">
+<meta property="og:updated_time" content="2019-11-25T13:20:45.765Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="test20190830">
-<meta name="twitter:description" content="闲扯今天的考试比昨天友好多了，起码大佬们讲的东西大多数都还是听得懂。 不过话说 $DC$ 少爷机还真是强啊，暴力跑过了 $8$ 个点。 题面$T1$又要维护连续编号的节点的子树和，又要支持单点修改，问题就变得十分不可描述起来，因为貌似没法用线段树之类的来一起维护。 考虑分块。将编号 $1\sim n$ 分为 $\sqrt{n}$ 块。 先用 $DFS$ 预处理出每个点的 $dfn$ 序以及从该点到">
+<meta name="twitter:title" content="CSP-S 2019 游记">
+<meta name="twitter:description" content="CSP-S 2019 游记考完已经过了一周多了，终于还是滚来写游记了。 趁着成绩还没出来，心态还比较稳的时候，简单记录一下。 Day -inf整天在机房里刷题，划水，按时出去打球，生活过得轻松自在。 Day 0中午 $2:30$ 从学校出发，在车上看了 $40$ 分钟的番，但是网太差了， 选择睡觉。 大概睡了 $2$ 个小时最后，起来的时候脖子感觉废了一样，肯定是睡觉姿势不对。。。 到宾馆之后开始">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://DCOITheShadow.github.io/2019/08/30/test20190830题解/">
+  <link rel="canonical" href="https://DCOITheShadow.github.io/2019/11/25/CSP-S2019 游记/">
 
 
 
 
 
-  <title>test20190830 | TheShadow</title>
+  <title>CSP-S 2019 游记 | TheShadow</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/08/30/test20190830题解/">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/11/25/CSP-S2019 游记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TheShadow">
@@ -269,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">test20190830</h1>
+          <h1 class="post-title" itemprop="name headline">CSP-S 2019 游记</h1>
         
 
         <div class="post-meta">
@@ -281,8 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-30T18:26:57+08:00">
-                2019-08-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-25T20:38:01+08:00">
+                2019-11-25
               </time>
             
 
@@ -319,33 +319,49 @@
       
 
       
-        <h1 id="闲扯"><a href="#闲扯" class="headerlink" title="闲扯"></a>闲扯</h1><p>今天的考试比昨天友好多了，起码大佬们讲的东西大多数都还是听得懂。</p>
-<p>不过话说 $DC$ 少爷机还真是强啊，暴力跑过了 $8$ 个点。</p>
-<h1 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h1><h1 id="T1"><a href="#T1" class="headerlink" title="$T1$"></a>$T1$</h1><p>又要维护连续编号的节点的子树和，又要支持单点修改，问题就变得十分不可描述起来，因为貌似没法用线段树之类的来一起维护。</p>
-<p>考虑分块。将编号 $1\sim n$ 分为 $\sqrt{n}$ 块。</p>
-<p>先用 $DFS$ 预处理出每个点的 $dfn$ 序以及从该点到根节点对每一个块的贡献次数。</p>
-<p>询问时，整块的部分直接调用答案，对于边角部分利用求出的 $dfn$ 序，用树状数组查询。（树状数组是以 $dfn$ 序为下标，维护子树和）</p>
-<p>修改时，先对树状数组进行单点修改，然后枚举对每一个块的贡献次数，直接修改块的答案。</p>
-<h1 id="T2"><a href="#T2" class="headerlink" title="$T2$"></a>$T2$</h1><p>对于求一个图中的生成树个数，考虑使用<strong>矩阵树定理</strong>。</p>
-<p><a href="https://baike.baidu.com/item/%E7%9F%A9%E9%98%B5-%E6%A0%91%E5%AE%9A%E7%90%86/18894498?fr=aladdin" target="_blank" rel="noopener">矩阵树定理</a></p>
-<p>先构造出该图的基尔霍夫矩阵，因为是一个完全二分图，可以发现是十分有规律的，写出该矩阵的余子式。</p>
-<p>这个矩阵的行列式就是答案。</p>
-<p>我们可以将它分为 $4$ 个区域，左下角和右上角全是 $-1$ 。</p>
-<p>左上角是一个 $n\times n$ 的对角矩阵，对角线上的元素都是 $m$ 。</p>
-<p>右下角是一个 $(m-1)\times(m-1)$ 的对角矩阵，对角线上的元素都是 $n$ 。</p>
-<p>因为这个矩阵十分特殊，我们直接尝试算它的行列式。</p>
-<p>详细计算过程见<a href="https://jkloverdcoi.github.io/2019/08/30/test20190830/" target="_blank" rel="noopener"> $jklover$ 大佬的 $blog$ </a>。</p>
-<h1 id="T3"><a href="#T3" class="headerlink" title="$T3$"></a>$T3$</h1><p>将两种移动方式看做两个向量 $\vec{a},\vec{b}$ 。因为题目保证它们不共线，所以每个点都可以被写成 $x\cdot\vec{a}+y\cdot\vec{b}$ 。</p>
-<p>以解出来的 $(x,y)$ 代替原来的坐标，就变成了每次可以向右或向上走一步，可以直接舍去坐标转换后不是整点的点，要求不能经过障碍点，求起点到终点的方案数。</p>
-<p>如果没有障碍，答案显然是 $C_{x+y}^x$ （一共要走 $x+y$ 步，从中选出 $x$ 步为向左走的）。</p>
-<p>但现在有障碍，直接递推显然不行，因为新坐标的大小可以达到 $2\times 500^2$ 。</p>
-<p>将障碍点，目标点视为关键点，记原点为 $0$ 号关键点。</p>
-<p>坐标转换后，按照 $x$ 为第一关键字， $y$ 为第二关键字排序，就做出了一个拓扑序，再进行 $DP$ 。</p>
-<p>设 $f(i)$ 表示从原点到第 $i$ 个关键点，其间不经过其他关键点的方案数。</p>
-<p>$g(i)$ 表示从第 $i$ 个关键点到第 $j$ 个关键点的所有方案数。</p>
-<p>转移有 $f(i)=g(0,i)-\sum\limits_{j=1}^{i-1}g(j,i)\cdot f(j)$ 。而 $g$ 不需要考虑障碍，若能到达就是组合数，否则就是 $0$ 。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><del>就一个字——菜</del></p>
-<p>做题还是没掌握到套路，需要多练习。</p>
+        <h1 id="CSP-S-2019-游记"><a href="#CSP-S-2019-游记" class="headerlink" title="CSP-S 2019 游记"></a>CSP-S 2019 游记</h1><p>考完已经过了一周多了，终于还是滚来写游记了。</p>
+<p>趁着成绩还没出来，心态还比较稳的时候，简单记录一下。</p>
+<h2 id="Day-inf"><a href="#Day-inf" class="headerlink" title="Day -inf"></a>Day -inf</h2><p>整天在机房里刷题，划水，按时出去打球，生活过得轻松自在。</p>
+<h2 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h2><p>中午 $2:30$ 从学校出发，在车上看了 $40$ 分钟的番，但是网太差了， 选择睡觉。</p>
+<p>大概睡了 $2$ 个小时最后，起来的时候脖子感觉废了一样，肯定是睡觉姿势不对。。。</p>
+<p>到宾馆之后开始颓 $B$ 站，大概 $6$ 点出去吃饭。</p>
+<p>结果吃什么半天决定不下来，最后 $ChiTongZ$ 和 $wzx$ 去吃华莱士，我和 $JKLover,autoint$ 两位神仙去吃了火锅。</p>
+<p>$wzx$ 担心把肚子吃坏了，可能真的是紧张过头了吧？</p>
+<h2 id="Day-1"><a href="#Day-1" class="headerlink" title="Day 1"></a>Day 1</h2><p>早上宾馆前台的电话打过来之后，又在床上躺了一会儿，才去吃的早饭，感觉还不错<del>至少比某辰学校的好</del></p>
+<p>到考场之后照常打了一个模板，然后等老师发题。</p>
+<p>题面下放之后，打开浏览了一下，被 $T1$ 的题目描述吓到了，这么长的题面，肯定很难， $T2,T3$ 大概扫了一眼。</p>
+<p>我旁边的那位貌似是一个高一的，$ftp$ 貌似没用过，半天没打开，还找我问。感觉心里的压力没那么大了，至少旁边不是一个 $1h$ 就能 $AK$ 的大佬。</p>
+<p>仔细读了一遍 $T1$ ，发现是一个简单的分治，快速 $rash$ 掉走人，中间因为细节操作卡了一会儿，但是问题不大。</p>
+<p>开始看 $T2$ 。</p>
+<p>套路性的转换了一下，发现貌似挺好做的。结果写着写着感觉不对劲，想要写主席树，但是突然反应过来，开了一个桶解决。</p>
+<p>编译一遍过，并且成功过了第一个样例，嗯，心态稳健。</p>
+<p>结果第二个样例死了，想了想，找到原因后，改了几分钟，成功过了 $3$ 个样例，也没写对拍，直接走人，去看 $T3$ 。</p>
+<p>考试前，老师说今年的题目难度和去年差不多，感觉 $T3$ 应该是能做的，结果画了接近 $2h$ 的图，还是没有画出来，果断打了个 $10$ 分暴力，去检查 $T1,T2$ 了。</p>
+<p>$T1$ 发现数据范围不对劲，貌似要用 $ULL$ ，改了改，结果发现极限数据有问题，直接左移貌似会爆炸，改成了先推表，总算过了极限数据，再回去肝 $T3$ ，结果到考试结束也没进展。</p>
+<p>预计 $100+100+10=210$ 。</p>
+<p>出考场之后，发现大家的 $T3$ 貌似都那样，也就放心了。</p>
+<p>回宾馆的路上， $JKLover$ 在担心自己 $T2$ 的回溯是不是挂了，搞得我也有点担心，不过已经考过了，也就没太想了。</p>
+<p>下午晚上一直宅在宾馆里颓隔膜。</p>
+<h2 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h2><p>依旧是赖了一会儿床，吃完饭后到宾馆大厅等着，外面霾有点大，在去电子神大的路上买了个口罩。</p>
+<p>到考室之后，发现自己的位置上电脑没开，考号也没了。</p>
+<p>心里有点慌，赶快去问监考老师。</p>
+<p>得知是电脑出问题了，位置换到了右下角，吓了我一跳。</p>
+<p>写完模板之后，开始扫雷，直到下发试题。</p>
+<p>旁边貌似是一个初中的，看他考试考到一半开始玩蜘蛛纸牌，应该只是来混经验的吧。</p>
+<p>$T1$ 肝到了 $10:30$ ，但是 $dp$ 依旧没改出来，放弃，打了个暴力去看后两题。</p>
+<p>$T2$ 第一眼是斜率优化，但是发现要求单增，开始自闭，打了一个 $O(n^3)$ 的 $dp$ ，走人。</p>
+<p>$T3$ 感觉部分分挺好拿的，简单推了一下，打了 $75$ 分，准备回去继续肝 $T1$ 。</p>
+<p>最后考试结束时，依旧没有什么进展，只能无奈退场。</p>
+<p>预计 $32+36+75=143$ 。<del>为毛得分是递增的</del></p>
+<p>回酒店收拾完东西去吃饭。</p>
+<p>老师说要在 $1:50$ 之前吃完，结果吃完已经 $2:10$ 了。。</p>
+<p>回学校后，老师给我们放了两天假，回去好好地颓了两天。</p>
+<h2 id="Day-3"><a href="#Day-3" class="headerlink" title="Day 3"></a>Day 3</h2><p>源程序下来了，在 $Luogu$ 上测了一发，发现 $Day2\ T3$ 挂了 $35$ 分，检查了一下，发现没清空。。。</p>
+<p>下午自闭，打隔膜去了。</p>
+<h2 id="Day-4"><a href="#Day-4" class="headerlink" title="Day 4"></a>Day 4</h2><p>滚回学校学常规了。。。</p>
+<h2 id="考后总结"><a href="#考后总结" class="headerlink" title="考后总结"></a>考后总结</h2><p>这次预计得分只有 $318$ 分，感觉 $WC$ 可能有点悬，听天由命吧。</p>
+<p>还有就是感觉 $Day2$ 有点考心态，果然还是历练不够啊。</p>
+<p>不甘心就这样结束我的 $OI$ 生涯，决定还是继续冲省选，希望能有一个令人满意的结果吧。</p>
 
       
     </div>
@@ -370,8 +386,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/29/P3931 SAC E#1 - 一道难题 Tree/" rel="next" title="P3931 SAC E#1 - 一道难题 Tree">
-                <i class="fa fa-chevron-left"></i> P3931 SAC E#1 - 一道难题 Tree
+              <a href="/2019/11/25/P5664-Emiya-家今天的饭【民间数据】/" rel="next" title="P5664 Emiya 家今天的饭【民间数据】">
+                <i class="fa fa-chevron-left"></i> P5664 Emiya 家今天的饭【民间数据】
               </a>
             
           </div>
@@ -379,10 +395,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/01/P4551 最长异或路径/" rel="prev" title="P4551 最长异或路径">
-                P4551 最长异或路径 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -498,7 +510,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#闲扯"><span class="nav-number">1.</span> <span class="nav-text">闲扯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题面"><span class="nav-number">2.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#T1"><span class="nav-number">3.</span> <span class="nav-text">$T1$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#T2"><span class="nav-number">4.</span> <span class="nav-text">$T2$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#T3"><span class="nav-number">5.</span> <span class="nav-text">$T3$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSP-S-2019-游记"><span class="nav-number">1.</span> <span class="nav-text">CSP-S 2019 游记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day-inf"><span class="nav-number">1.1.</span> <span class="nav-text">Day -inf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day-0"><span class="nav-number">1.2.</span> <span class="nav-text">Day 0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day-1"><span class="nav-number">1.3.</span> <span class="nav-text">Day 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day-2"><span class="nav-number">1.4.</span> <span class="nav-text">Day 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day-3"><span class="nav-number">1.5.</span> <span class="nav-text">Day 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day-4"><span class="nav-number">1.6.</span> <span class="nav-text">Day 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#考后总结"><span class="nav-number">1.7.</span> <span class="nav-text">考后总结</span></a></li></ol></li></ol></div>
             
 
           </div>
