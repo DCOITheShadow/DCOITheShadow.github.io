@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="闲扯数列练习好题。 题面P5517 [MtOI2019]幻想乡数学竞赛 Solution直接暴力矩阵乘法肯定不行，复杂度爆了。 考虑简化，可以发现这个式子很有规律。 由高一的数列知识，我们做出如下操作：  a_n=3\cdot a_{n-1}+a_{n-2}-3\cdot a_{n-3}+3^n\\ a_n-3\cdot a_{n-1}=a_{n-2}-3\cdot a_{n-3}+3^n我们设">
+<meta name="description" content="闲扯数列练习好题。 题面P5517 [MtOI2019]幻想乡数学竞赛 Solution直接暴力矩阵乘法肯定不行，复杂度爆了。 考虑简化，可以发现这个式子很有规律。 由高一的数列知识，我们做出如下操作：$$a_n=3\cdot a_{n-1}+a_{n-2}-3\cdot a_{n-3}+3^n\a_n-3\cdot a_{n-1}=a_{n-2}-3\cdot a_{n-3}+3^n$$我们设">
 <meta property="og:type" content="article">
 <meta property="og:title" content="P5517 [MtOI2019]幻想乡数学竞赛">
 <meta property="og:url" content="https://DCOITheShadow.github.io/2019/12/17/P5517-[MtOI2019]幻想乡数学竞赛/index.html">
 <meta property="og:site_name" content="TheShadow">
-<meta property="og:description" content="闲扯数列练习好题。 题面P5517 [MtOI2019]幻想乡数学竞赛 Solution直接暴力矩阵乘法肯定不行，复杂度爆了。 考虑简化，可以发现这个式子很有规律。 由高一的数列知识，我们做出如下操作：  a_n=3\cdot a_{n-1}+a_{n-2}-3\cdot a_{n-3}+3^n\\ a_n-3\cdot a_{n-1}=a_{n-2}-3\cdot a_{n-3}+3^n我们设">
+<meta property="og:description" content="闲扯数列练习好题。 题面P5517 [MtOI2019]幻想乡数学竞赛 Solution直接暴力矩阵乘法肯定不行，复杂度爆了。 考虑简化，可以发现这个式子很有规律。 由高一的数列知识，我们做出如下操作：$$a_n=3\cdot a_{n-1}+a_{n-2}-3\cdot a_{n-3}+3^n\a_n-3\cdot a_{n-1}=a_{n-2}-3\cdot a_{n-3}+3^n$$我们设">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-12-17T05:02:52.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="P5517 [MtOI2019]幻想乡数学竞赛">
-<meta name="twitter:description" content="闲扯数列练习好题。 题面P5517 [MtOI2019]幻想乡数学竞赛 Solution直接暴力矩阵乘法肯定不行，复杂度爆了。 考虑简化，可以发现这个式子很有规律。 由高一的数列知识，我们做出如下操作：  a_n=3\cdot a_{n-1}+a_{n-2}-3\cdot a_{n-3}+3^n\\ a_n-3\cdot a_{n-1}=a_{n-2}-3\cdot a_{n-3}+3^n我们设">
+<meta name="twitter:description" content="闲扯数列练习好题。 题面P5517 [MtOI2019]幻想乡数学竞赛 Solution直接暴力矩阵乘法肯定不行，复杂度爆了。 考虑简化，可以发现这个式子很有规律。 由高一的数列知识，我们做出如下操作：$$a_n=3\cdot a_{n-1}+a_{n-2}-3\cdot a_{n-3}+3^n\a_n-3\cdot a_{n-1}=a_{n-2}-3\cdot a_{n-3}+3^n$$我们设">
 
 
 
@@ -323,37 +323,17 @@
 <h1 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h1><p><a href="https://www.luogu.com.cn/problem/P5517" target="_blank" rel="noopener">P5517 [MtOI2019]幻想乡数学竞赛</a></p>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>直接暴力矩阵乘法肯定不行，复杂度爆了。</p>
 <p>考虑简化，可以发现这个式子很有规律。</p>
-<p>由高一的数列知识，我们做出如下操作：</p>
-<script type="math/tex; mode=display">
-a_n=3\cdot a_{n-1}+a_{n-2}-3\cdot a_{n-3}+3^n\\
-a_n-3\cdot a_{n-1}=a_{n-2}-3\cdot a_{n-3}+3^n</script><p>我们设 $b_{i}=a_i-3\cdot a_{i-1}$ ，其中 $b_1=3,b_2=6$ 。</p>
-<p>那么我们有：</p>
-<script type="math/tex; mode=display">
-b_n=b_{n-2}+3^n\\
-b_n-b_{n-2}=3^n</script><p>我们分奇偶讨论：</p>
+<p>由高一的数列知识，我们做出如下操作：<br>$$<br>a_n=3\cdot a_{n-1}+a_{n-2}-3\cdot a_{n-3}+3^n\<br>a_n-3\cdot a_{n-1}=a_{n-2}-3\cdot a_{n-3}+3^n<br>$$<br>我们设 $b_{i}=a_i-3\cdot a_{i-1}$ ，其中 $b_1=3,b_2=6$ 。</p>
+<p>那么我们有：<br>$$<br>b_n=b_{n-2}+3^n\<br>b_n-b_{n-2}=3^n<br>$$<br>我们分奇偶讨论：</p>
 <p>当 $n$ 为奇数时，由累加法，我们有 $b_n-b_1=3^n+3^{n-2}+\cdots +3^3$ 。</p>
-<p>等比数列求和，我们可以得到：</p>
-<script type="math/tex; mode=display">
-b_n-b_1=\frac{3^{n+2}-27}{8}\\
-b_n=\frac{3^{n+2}-3}{8}</script><p>所以 $a_n-3\cdot a_{n-1}=\frac{3^{n+2}-3}{8}$ 。</p>
+<p>等比数列求和，我们可以得到：<br>$$<br>b_n-b_1=\frac{3^{n+2}-27}{8}\<br>b_n=\frac{3^{n+2}-3}{8}<br>$$<br>所以 $a_n-3\cdot a_{n-1}=\frac{3^{n+2}-3}{8}$ 。</p>
 <p>类似的，我们可以算出当 $n$ 为偶数时， $a_n-3\cdot a_{n-1}=\frac{3^{n+2}-33}{8}$ 。</p>
-<p>继续按照套路，我们设 $c_i=\frac{a_i}{3^i}$ ，则：</p>
-<script type="math/tex; mode=display">
-c_n-c_{n-1}=\frac{9}{8}-\frac{1}{8\cdot 3^{n-1}},\ n \equiv 1\ (mod\ 2)\\
-c_n-c_{n-1}=\frac{9}{8}-\frac{11}{8\cdot 3^{n-1}},\ n \equiv 0\ (mod\ 2)</script><p>同样分奇偶讨论。</p>
-<p>当 $n$ 为奇数时，我们有：</p>
-<script type="math/tex; mode=display">
-c_n-c_{n-1}=\frac{9}{8}-\frac{1}{8\cdot 3^{n-1}}\\
-c_{n-1}-c_{n-2}=\frac{9}{8}-\frac{11}{8\cdot 3^{n-2}}</script><p>两式相加，可以得到 $c_n-c_{n-2}=\frac{9}{4}-\frac{17}{4\cdot 3^{n-1}}$ 。</p>
-<p>继续使用累加法，我们有：</p>
-<script type="math/tex; mode=display">
-c_n-c_1=\frac{n-1}{2}\cdot \frac{9}{4}-\frac{17}{4}\cdot \frac{1-3^{1-n}}{8}\\
-c_n-c_1=\frac{17}{32}\cdot 3^{1-n}+\frac{9}{8}n-\frac{53}{32}</script><p>因为 $c_1=-2$ ，所以 $c_n=\frac{17}{32}\cdot 3^{1-n}+\frac{9}{8}n-\frac{117}{32}$ 。</p>
+<p>继续按照套路，我们设 $c_i=\frac{a_i}{3^i}$ ，则：<br>$$<br>c_n-c_{n-1}=\frac{9}{8}-\frac{1}{8\cdot 3^{n-1}},\ n \equiv 1\ (mod\ 2)\<br>c_n-c_{n-1}=\frac{9}{8}-\frac{11}{8\cdot 3^{n-1}},\ n \equiv 0\ (mod\ 2)<br>$$<br>同样分奇偶讨论。</p>
+<p>当 $n$ 为奇数时，我们有：<br>$$<br>c_n-c_{n-1}=\frac{9}{8}-\frac{1}{8\cdot 3^{n-1}}\<br>c_{n-1}-c_{n-2}=\frac{9}{8}-\frac{11}{8\cdot 3^{n-2}}<br>$$<br>两式相加，可以得到 $c_n-c_{n-2}=\frac{9}{4}-\frac{17}{4\cdot 3^{n-1}}$ 。</p>
+<p>继续使用累加法，我们有：<br>$$<br>c_n-c_1=\frac{n-1}{2}\cdot \frac{9}{4}-\frac{17}{4}\cdot \frac{1-3^{1-n}}{8}\<br>c_n-c_1=\frac{17}{32}\cdot 3^{1-n}+\frac{9}{8}n-\frac{53}{32}<br>$$<br>因为 $c_1=-2$ ，所以 $c_n=\frac{17}{32}\cdot 3^{1-n}+\frac{9}{8}n-\frac{117}{32}$ 。</p>
 <p>所以当 $n$ 为奇数时， $a_n=\frac{51}{32}+\frac{n}{8}\cdot 3^{n+2}-\frac{117}{32}\cdot 3^n$ 。</p>
 <p>类似的，我们可以推出当 $n$ 为偶数的时候， $a_n=\frac{21}{32}+\frac{n}{8}\cdot 3^{n+2}-\frac{117}{32}\cdot 3^n$ 。</p>
-<p>可以发现只有常数项有细微的差别，我们合并一下，即可得到：</p>
-<script type="math/tex; mode=display">
-a_n=\frac{1}{32}\cdot (3^n\cdot (36n-117)+21+30\cdot [n\ mod\ 2\ ==1])</script><p>发现我们每次需要算一个 $3^n$ ，时间复杂度 $O(T\log n)$ ，依旧很爆炸。</p>
+<p>可以发现只有常数项有细微的差别，我们合并一下，即可得到：<br>$$<br>a_n=\frac{1}{32}\cdot (3^n\cdot (36n-117)+21+30\cdot [n\ mod\ 2\ ==1])<br>$$<br>发现我们每次需要算一个 $3^n$ ，时间复杂度 $O(T\log n)$ ，依旧很爆炸。</p>
 <p>根据<strong>费马小定理</strong>，我们有 $3^n\equiv 3^{n\ mod\ P-1}(mod\ P)$ ，可以优化到 $O(T\log P)$ 。<del>然而并没有啥卵用</del></p>
 <p>但是 $P=10^9+7,\sqrt{P}=31623$ ， 所以考虑<strong>光速幂</strong>。</p>
 <p>我们预处理出 $3^{32000i}$ 和 $3^i$ ，就可以将 $3^n$ 拆分为 $3^{\lfloor\frac{n}{32000}\rfloor}\cdot 3^{n\ mod\ 32000}$ 。</p>
@@ -473,7 +453,7 @@ a_n=\frac{1}{32}\cdot (3^n\cdot (36n-117)+21+30\cdot [n\ mod\ 2\ ==1])</script><
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">115</span>
+                  <span class="site-state-item-count">117</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
