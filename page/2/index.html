@@ -249,6 +249,139 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/12/19/P4074-[WC2013]糖果公园/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TheShadow">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TheShadow">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/19/P4074-[WC2013]糖果公园/" itemprop="url">P4074 [WC2013]糖果公园</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-19T08:02:45+08:00">
+                2019-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          闲扯这道题可谓是莫队的集大成者。。。
+各种各样的方法都用到了。。。
+题面P4074 [WC2013]糖果公园
+Solution将题意简化：
+
+每次询问树上一条路径的权值 $S=\sum_{i=1}^{m}\sum_{j=1}^{num_i}w_j\cdot val_i$ ，其中有修改操作。
+
+如果这
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/12/19/P4074-[WC2013]糖果公园/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/12/18/test20191218/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -454,9 +587,7 @@ $T1$Solution
           
           闲扯矩阵树逐渐开始变得玄学了起来。。。
 题面P3317 [SDOI2014]重建
-Solution题目要求的式子：
-
-\sum_{Tree}\prod_{(u,v)\in E} P_{u,v}\prod_{(u,v)\notin E} (1-P_{u,v})如果我们将 $P_{u,v}$ 看做这条边
+Solution题目要求的式子：$$\sum_{Tree}\prod_{(u,v)\in E} P_{u,v}\prod_{(u,v)\notin E} (1-P_{u,v})$$如果我们将 $P_{u,v}$ 看做这
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -586,9 +717,7 @@ Solution题目要求的式子：
 题面P5517 [MtOI2019]幻想乡数学竞赛
 Solution直接暴力矩阵乘法肯定不行，复杂度爆了。
 考虑简化，可以发现这个式子很有规律。
-由高一的数列知识，我们做出如下操作：
-
-a_n=3\cdot a_{n-1}+a_{n-2}-3\cdot a_{n-3}+3^n\\
+由高一的数列知识，我们做出如下操作：$$a_n=3\cdot a_{n-1}+a_{n-2}-3\cdot a_{n-3}+3^n\a
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -845,10 +974,8 @@ $T1$Solution我们设 $f_{u,k}$ 表示从 $fa_u$ 到 $1$ 这条链上，合法�
           
           闲扯多项式乘法练习题
 题面P5395 【模板】第二类斯特林数·行
-Solution我们设 $s_{n,m}=\begin{Bmatrix} n\\ m\end{Bmatrix}$ 。
-考虑第二类斯特林数的通项式：
-
-s_{n,m}=\sum_{i=0}^m (-1)^iC_{m}^i\frac{(m
+Solution我们设 $s_{n,m}=\begin{Bmatrix} n\ m\end{Bmatrix}$ 。
+考虑第二类斯特林数的通项式：$$s_{n,m}=\sum_{i=0}^m (-1)^iC_{m}^i\frac{(m-
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1369,144 +1496,11 @@ Solution对于每一条边，我们经过它时有两种情况：
           闲扯动态点分治的常数是真的大。。。
 题面P3241 [HNOI2015]开店
 Solution这道题有两种思路：
-树链剖分+动态开店点线段树先写出答案要求的式子：
-
-ans_u=\sum_{i=1,L\leq col_i\leq R}^n dist_{u,i}\\
-=\sum_{\cdots}dis
+树链剖分+动态开店点线段树先写出答案要求的式子：$$ans_u=\sum_{i=1,L\leq col_i\leq R}^n dist_{u,i}\=\sum_{\cdots}dis_u
           ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/12/12/P3241-[HNOI2015]开店/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/12/11/P3345-[ZJOI2015]幻想乡战略游戏/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="TheShadow">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TheShadow">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/11/P3345-[ZJOI2015]幻想乡战略游戏/" itemprop="url">P3345 [ZJOI2015]幻想乡战略游戏</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-11T20:01:59+08:00">
-                2019-12-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          闲扯感觉这题基本就是看的题解，不过还是大概对动态点分治有了些了解吧，决定还是写篇题解记录一下。
-题面P3345 [ZJOI2015]幻想乡战略游戏
-Solution先考虑给出每个点的军队个数怎么办。
-我们考虑通过换根 $DP$ 的方式来求解。
-具体的，我们设 $sz_u$ 表示 $u$ 的子树中军队
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/12/11/P3345-[ZJOI2015]幻想乡战略游戏/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1596,7 +1590,7 @@ Solution先考虑给出每个点的军队个数怎么办。
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">125</span>
+                  <span class="site-state-item-count">126</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
