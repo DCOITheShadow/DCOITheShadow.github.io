@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="闲扯暴力场 $+\ FST$ 场。 题面2020WC集训训练赛day5 $T1$结论题，可以证明答案一定在最大的 $\log_2 x+2$ 个之间取到，然后直接暴力即可。 证明参考 $JKLover$ 的 博客。 code $T2$我们考虑当代价为 $\prod_{i=1}^N\binom{x_i}{k_i}$ 时，问题如何求解。 首先，当 $k_i=0$ 时，就是求划分的方案数，直接用隔板法即可">
+<meta name="description" content="闲扯暴力场 $+\ FST$ 场。 题面2020WC集训训练赛day5 $T1$结论题，可以证明答案一定在最大的 $\log_2 x+2$ 个之间取到，然后直接暴力即可。 证明参考 $JKLover$ 的 博客。 code $T2$我们考虑当代价为 $\prod_{i=1}^N\binom{x_i}{k_i}$ 时，问题如何求解。（此时 $k_i$ 确定） 首先，当 $k_i=0$ 时，就是求划分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2020WC集训训练赛day5">
 <meta property="og:url" content="https://DCOITheShadow.github.io/2020/01/03/2020WC集训训练赛day5/index.html">
 <meta property="og:site_name" content="TheShadow">
-<meta property="og:description" content="闲扯暴力场 $+\ FST$ 场。 题面2020WC集训训练赛day5 $T1$结论题，可以证明答案一定在最大的 $\log_2 x+2$ 个之间取到，然后直接暴力即可。 证明参考 $JKLover$ 的 博客。 code $T2$我们考虑当代价为 $\prod_{i=1}^N\binom{x_i}{k_i}$ 时，问题如何求解。 首先，当 $k_i=0$ 时，就是求划分的方案数，直接用隔板法即可">
+<meta property="og:description" content="闲扯暴力场 $+\ FST$ 场。 题面2020WC集训训练赛day5 $T1$结论题，可以证明答案一定在最大的 $\log_2 x+2$ 个之间取到，然后直接暴力即可。 证明参考 $JKLover$ 的 博客。 code $T2$我们考虑当代价为 $\prod_{i=1}^N\binom{x_i}{k_i}$ 时，问题如何求解。（此时 $k_i$ 确定） 首先，当 $k_i=0$ 时，就是求划分">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-03T14:00:51.168Z">
+<meta property="og:updated_time" content="2020-01-03T14:10:07.062Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2020WC集训训练赛day5">
-<meta name="twitter:description" content="闲扯暴力场 $+\ FST$ 场。 题面2020WC集训训练赛day5 $T1$结论题，可以证明答案一定在最大的 $\log_2 x+2$ 个之间取到，然后直接暴力即可。 证明参考 $JKLover$ 的 博客。 code $T2$我们考虑当代价为 $\prod_{i=1}^N\binom{x_i}{k_i}$ 时，问题如何求解。 首先，当 $k_i=0$ 时，就是求划分的方案数，直接用隔板法即可">
+<meta name="twitter:description" content="闲扯暴力场 $+\ FST$ 场。 题面2020WC集训训练赛day5 $T1$结论题，可以证明答案一定在最大的 $\log_2 x+2$ 个之间取到，然后直接暴力即可。 证明参考 $JKLover$ 的 博客。 code $T2$我们考虑当代价为 $\prod_{i=1}^N\binom{x_i}{k_i}$ 时，问题如何求解。（此时 $k_i$ 确定） 首先，当 $k_i=0$ 时，就是求划分">
 
 
 
@@ -324,7 +324,7 @@
 <h1 id="T1"><a href="#T1" class="headerlink" title="$T1$"></a>$T1$</h1><p>结论题，可以证明答案一定在最大的 $\log_2 x+2$ 个之间取到，然后直接暴力即可。</p>
 <p>证明参考 $JKLover$ 的 <a href="https://jkloverdcoi.github.io/2020/01/03/test20200103/" target="_blank" rel="noopener">博客</a>。</p>
 <p><a href="http://zhengruioi.com/submission/202341" target="_blank" rel="noopener">code</a></p>
-<h1 id="T2"><a href="#T2" class="headerlink" title="$T2$"></a>$T2$</h1><p>我们考虑当代价为 $\prod_{i=1}^N\binom{x_i}{k_i}$ 时，问题如何求解。</p>
+<h1 id="T2"><a href="#T2" class="headerlink" title="$T2$"></a>$T2$</h1><p>我们考虑当代价为 $\prod_{i=1}^N\binom{x_i}{k_i}$ 时，问题如何求解。（此时 $k_i$ 确定）</p>
 <p>首先，当 $k_i=0$ 时，就是求划分的方案数，直接用隔板法即可解决。</p>
 <p>考虑这个式子的组合意义， $\binom{x_i}{k_i}$ 就是在这 $x_i$ 个数中无序的选择 $k_i$ 个作为代表。</p>
 <p>我们将这 $\sum k_i$ 个代表也抽出来作为隔板，那么我们就有 $N-1+\sum k_i$ 个隔板，有 $M-\sum k_i$ 个元素。</p>
@@ -374,6 +374,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/04/「SHOI2017」组合数问题/" rel="prev" title="「SHOI2017」组合数问题">
+                「SHOI2017」组合数问题 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -452,7 +456,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">126</span>
+                  <span class="site-state-item-count">127</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
