@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="TheShadow">
 <meta property="og:description" content="容斥学习笔记容斥的两种基本形式：$$|\bigcup_{i=1}^n A_i|=\sum_{k=1}^n (-1)^{k+1}(\sum_{1\leq i_1&amp;lt;\cdots&amp;lt;i_k\leq n}|A_{i_1}\cap\cdots\cap A_{i_k}|)\|\bigcap_{i=1}^n A_i|=\sum_{S\subseteq [n]}(-1)^{|S|}|\bigcap_{i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-21T07:18:29.834Z">
+<meta property="og:updated_time" content="2020-01-04T03:28:06.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="容斥学习笔记">
 <meta name="twitter:description" content="容斥学习笔记容斥的两种基本形式：$$|\bigcup_{i=1}^n A_i|=\sum_{k=1}^n (-1)^{k+1}(\sum_{1\leq i_1&amp;lt;\cdots&amp;lt;i_k\leq n}|A_{i_1}\cap\cdots\cap A_{i_k}|)\|\bigcap_{i=1}^n A_i|=\sum_{S\subseteq [n]}(-1)^{|S|}|\bigcap_{i">
@@ -348,7 +348,7 @@
 <p>设 $f_{0/1,S,k}$ 表示当前轮廓为 $S$ ，有 $k$ 个可以覆盖的位置的方案数， $0/1$ 表示当前位置，使用滚动数组，优化空间。</p>
 <p>因为容斥系数为 $-1$ ，且只和集合大小的奇偶性有关，我们可以直接将容斥系数放入 $dp$ 数组中，不用再单独开一维。</p>
 <p>每次直接大力转移即可。</p>
-<p>最后对每个 $dp_{now,T,k}$ 乘上 $\frac{now}{k}$ 即为答案。</p>
+<p>最后对每个 $dp_{now,T,k}$ 乘上 $\frac{sum}{k}$ 即为答案。</p>
 <p><a href="http://uoj.ac/submission/376683" target="_blank" rel="noopener">code</a></p>
 <h2 id="Everything-on-It"><a href="#Everything-on-It" class="headerlink" title="Everything on It"></a>Everything on It</h2><p><a href="https://atcoder.jp/contests/arc096/tasks/arc096_c" target="_blank" rel="noopener">原题链接</a></p>
 <h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h3><p>简化一下题意：</p>
@@ -494,7 +494,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">127</span>
+                  <span class="site-state-item-count">128</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
