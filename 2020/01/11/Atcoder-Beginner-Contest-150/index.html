@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="博客园">
+<meta name="description" content="$A,B,C$签到题，随便做做。 $D$将每一个数里面的 $2$ 全部提出来，其个数即为 $w_i$ ，如果 $w$ 不是所有数都相等，那么无解。 否则求出所有数的 $lcm$ ，再乘上 $2^{w_i-1}$ ，剩下的一个 $2$ 放入 $(p+0.5)$ 中，可以看出这一定是个奇数。 答案就是 $[1,M]$ 中 $lcm$ 的倍数，且为奇数的数的个数。 注意一点，如果 $lcm$ 超过 $M">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test20190907">
-<meta property="og:url" content="https://DCOITheShadow.github.io/2019/09/08/test20190907题解/index.html">
+<meta property="og:title" content="Atcoder Beginner Contest 150">
+<meta property="og:url" content="https://DCOITheShadow.github.io/2020/01/11/Atcoder-Beginner-Contest-150/index.html">
 <meta property="og:site_name" content="TheShadow">
-<meta property="og:description" content="博客园">
+<meta property="og:description" content="$A,B,C$签到题，随便做做。 $D$将每一个数里面的 $2$ 全部提出来，其个数即为 $w_i$ ，如果 $w$ 不是所有数都相等，那么无解。 否则求出所有数的 $lcm$ ，再乘上 $2^{w_i-1}$ ，剩下的一个 $2$ 放入 $(p+0.5)$ 中，可以看出这一定是个奇数。 答案就是 $[1,M]$ 中 $lcm$ 的倍数，且为奇数的数的个数。 注意一点，如果 $lcm$ 超过 $M">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-10T14:32:44.590Z">
+<meta property="og:updated_time" content="2020-01-11T00:12:26.665Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="test20190907">
-<meta name="twitter:description" content="博客园">
+<meta name="twitter:title" content="Atcoder Beginner Contest 150">
+<meta name="twitter:description" content="$A,B,C$签到题，随便做做。 $D$将每一个数里面的 $2$ 全部提出来，其个数即为 $w_i$ ，如果 $w$ 不是所有数都相等，那么无解。 否则求出所有数的 $lcm$ ，再乘上 $2^{w_i-1}$ ，剩下的一个 $2$ 放入 $(p+0.5)$ 中，可以看出这一定是个奇数。 答案就是 $[1,M]$ 中 $lcm$ 的倍数，且为奇数的数的个数。 注意一点，如果 $lcm$ 超过 $M">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://DCOITheShadow.github.io/2019/09/08/test20190907题解/">
+  <link rel="canonical" href="https://DCOITheShadow.github.io/2020/01/11/Atcoder-Beginner-Contest-150/">
 
 
 
 
 
-  <title>test20190907 | TheShadow</title>
+  <title>Atcoder Beginner Contest 150 | TheShadow</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/09/08/test20190907题解/">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2020/01/11/Atcoder-Beginner-Contest-150/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TheShadow">
@@ -269,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">test20190907</h1>
+          <h1 class="post-title" itemprop="name headline">Atcoder Beginner Contest 150</h1>
         
 
         <div class="post-meta">
@@ -281,8 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-08T05:10:41+08:00">
-                2019-09-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-11T07:28:39+08:00">
+                2020-01-11
               </time>
             
 
@@ -319,7 +319,26 @@
       
 
       
-        <p><a href="https://www.cnblogs.com/TheShadow/protected/p/11486499.html" target="_blank" rel="noopener">博客园</a></p>
+        <h1 id="A-B-C"><a href="#A-B-C" class="headerlink" title="$A,B,C$"></a>$A,B,C$</h1><p>签到题，随便做做。</p>
+<h1 id="D"><a href="#D" class="headerlink" title="$D$"></a>$D$</h1><p>将每一个数里面的 $2$ 全部提出来，其个数即为 $w_i$ ，如果 $w$ 不是所有数都相等，那么无解。</p>
+<p>否则求出所有数的 $lcm$ ，再乘上 $2^{w_i-1}$ ，剩下的一个 $2$ 放入 $(p+0.5)$ 中，可以看出这一定是个奇数。</p>
+<p>答案就是 $[1,M]$ 中 $lcm$ 的倍数，且为奇数的数的个数。</p>
+<p>注意一点，如果 $lcm$ 超过 $M$ ，立刻退出并输出 $0$ ，不然会爆 $long\ long$ （虽然并没有卡）。</p>
+<h1 id="E"><a href="#E" class="headerlink" title="$E$"></a>$E$</h1><p>首先，我们有一个贪心的想法：<strong>权值更小的应该更先修改</strong>。</p>
+<p>这一点可以用微扰法轻松证明。</p>
+<p>我们将 $C$ 排序，然后依次考虑每一位的贡献。</p>
+<p>我们有这样一个式子：<br>$$<br>ans=\sum_{i=1}^n 2^{2\cdot (i-1)}\cdot 2\cdot 2^{n-i}\cdot \sum_{k=0}^{n-i}\binom{n-i}{k}\cdot (k+1)<br>$$<br>表示之前的所有位已经修改，所以可能的情况有 $2^{2\cdot (i-1)}$ 种。</p>
+<p>这一位要修改，有 $2$ 种情况。</p>
+<p>最后的 $n-i$ 位，无论是每一位无论是相同还是不同，都是需要确定其中一排即可，方案数为 $2^{n-i}$ 。</p>
+<p>在之后的 $n-i$ 位中，我们枚举有 $k$ 对不一样的，一共有 $\binom{n-i}{k}$ 种可能，每种会带来 $k+1$ 的贡献。</p>
+<p>前面的好处理，主要是后面的组合数的问题。</p>
+<p>但是我们有两个很好的结论：<br>$$<br>\sum_{i=0}^n\binom{n}{i}=2^n\<br>\sum_{i=0}^n\binom{n}{i}\cdot i=n\cdot 2^{n-1}\<br>$$<br>然后我们将 $k+1$ 的括号拆开，就行了。</p>
+<p>最后化简得到的结果是：<br>$$<br>ans=\sum_{i=0}^n (n-i)\cdot 2^{2n-2}+2^{2n-1}<br>$$</p>
+<h1 id="F"><a href="#F" class="headerlink" title="$F$"></a>$F$</h1><p>比赛的时候没时间做了，看了下，做法比较显然。</p>
+<p>我们按照每一位来考虑。</p>
+<p>首先枚举 $k$ ，因为所有 $a’_i\ XOR\ k=b_i$ ，我们有 $a’_i\ XOR\ b_i=k$ 。</p>
+<p>所以我们需要 $a’$ 和 $b$ 异或起来相等。</p>
+<p>那么在每一位上，我们都有一个 $01$ 数列，要想要相等，每一位都必须是完全相等或者完全相反，这个我们可以用原数列的 $hash$ 和取反后的数列的 $hash$ 快速求出。</p>
 
       
     </div>
@@ -344,8 +363,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/05/P1856 [USACO5.5]矩形周长Picture/" rel="next" title="P1856 [USACO5.5]矩形周长Picture">
-                <i class="fa fa-chevron-left"></i> P1856 [USACO5.5]矩形周长Picture
+              <a href="/2020/01/04/决策单调性优化DP/" rel="next" title="决策单调性优化DP">
+                <i class="fa fa-chevron-left"></i> 决策单调性优化DP
               </a>
             
           </div>
@@ -353,10 +372,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/08/P2486 [SDOI2011]染色/" rel="prev" title="P2486 [SDOI2011]染色">
-                P2486 [SDOI2011]染色 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -408,8 +423,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -453,6 +477,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#A-B-C"><span class="nav-number">1.</span> <span class="nav-text">$A,B,C$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#D"><span class="nav-number">2.</span> <span class="nav-text">$D$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#E"><span class="nav-number">3.</span> <span class="nav-text">$E$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#F"><span class="nav-number">4.</span> <span class="nav-text">$F$</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
