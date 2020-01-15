@@ -327,14 +327,20 @@
 <h1 id="E"><a href="#E" class="headerlink" title="$E$"></a>$E$</h1><p>首先，我们有一个贪心的想法：<strong>权值更小的应该更先修改</strong>。</p>
 <p>这一点可以用微扰法轻松证明。</p>
 <p>我们将 $C$ 排序，然后依次考虑每一位的贡献。</p>
-<p>我们有这样一个式子：<br>$$<br>ans=\sum_{i=1}^n 2^{2\cdot (i-1)}\cdot 2\cdot 2^{n-i}\cdot \sum_{k=0}^{n-i}\binom{n-i}{k}\cdot (k+1)<br>$$<br>表示之前的所有位已经修改，所以可能的情况有 $2^{2\cdot (i-1)}$ 种。</p>
+<p>我们有这样一个式子：</p>
+<script type="math/tex; mode=display">
+ans=\sum_{i=1}^n 2^{2\cdot (i-1)}\cdot 2\cdot 2^{n-i}\cdot \sum_{k=0}^{n-i}\binom{n-i}{k}\cdot (k+1)</script><p>表示之前的所有位已经修改，所以可能的情况有 $2^{2\cdot (i-1)}$ 种。</p>
 <p>这一位要修改，有 $2$ 种情况。</p>
 <p>最后的 $n-i$ 位，无论是每一位无论是相同还是不同，都是需要确定其中一排即可，方案数为 $2^{n-i}$ 。</p>
 <p>在之后的 $n-i$ 位中，我们枚举有 $k$ 对不一样的，一共有 $\binom{n-i}{k}$ 种可能，每种会带来 $k+1$ 的贡献。</p>
 <p>前面的好处理，主要是后面的组合数的问题。</p>
-<p>但是我们有两个很好的结论：<br>$$<br>\sum_{i=0}^n\binom{n}{i}=2^n\<br>\sum_{i=0}^n\binom{n}{i}\cdot i=n\cdot 2^{n-1}\<br>$$<br>然后我们将 $k+1$ 的括号拆开，就行了。</p>
-<p>最后化简得到的结果是：<br>$$<br>ans=\sum_{i=0}^n (n-i)\cdot 2^{2n-2}+2^{2n-1}<br>$$</p>
-<h1 id="F"><a href="#F" class="headerlink" title="$F$"></a>$F$</h1><p>比赛的时候没时间做了，看了下，做法比较显然。</p>
+<p>但是我们有两个很好的结论：</p>
+<script type="math/tex; mode=display">
+\sum_{i=0}^n\binom{n}{i}=2^n\\
+\sum_{i=0}^n\binom{n}{i}\cdot i=n\cdot 2^{n-1}\\</script><p>然后我们将 $k+1$ 的括号拆开，就行了。</p>
+<p>最后化简得到的结果是：</p>
+<script type="math/tex; mode=display">
+ans=\sum_{i=0}^n (n-i)\cdot 2^{2n-2}+2^{2n-1}</script><h1 id="F"><a href="#F" class="headerlink" title="$F$"></a>$F$</h1><p>比赛的时候没时间做了，看了下，做法比较显然。</p>
 <p>我们按照每一位来考虑。</p>
 <p>首先枚举 $k$ ，因为所有 $a’_i\ XOR\ k=b_i$ ，我们有 $a’_i\ XOR\ b_i=k$ 。</p>
 <p>所以我们需要 $a’$ 和 $b$ 异或起来相等。</p>
@@ -454,7 +460,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">130</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -321,28 +321,58 @@
       
         <h1 id="牛顿迭代"><a href="#牛顿迭代" class="headerlink" title="牛顿迭代"></a>牛顿迭代</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>已知函数 $G(x)$ ，求一个多项式 $F(x)\ mod\ x^n$ 满足 $G(F(x))\equiv 0\ (mod\ x^n)$ 。</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>我们假设已经求出 $G(F_0(x))\equiv 0\ (mod\ x^{\lceil\frac{n}{2}\rceil})$ ，考虑如何拓展到 $mod\ x^n$ 下。</p>
-<p>我们把 $G(F(x))$ 在 $F_0(x)$ 处进行泰勒展开：<br>$$<br>G(F(x))=G(F_0(x))+\frac{G’(F_0(x))}{1!}(F(x)-F_0(x))+\frac{G’’(F_0(x))}{2!}(F(x)-F_0(x))^2+\cdots<br>$$<br>因为 $F(x)$ 和 $F_0(x)$ 的最后 $\lceil\frac{n}{2}\rceil$ 项相同，所以 $(F(x)-F_0(x))^2$ 最低非 $0$ 项系数大于 $2\cdot\lceil\frac{n}{2}\rceil$ ，所以可以得到：<br>$$<br>G(F(x))\equiv G(F_0(x))+G’(F_0(x))(F(x)-F_0(x))\ (mod\ x^n)\<br>F(x)\equiv F_0(x)-\frac{G(F_0(x))}{G’(F_0(x))}<br>$$<br>然后对 $n=1$ 的时候，我们单独求出满足条件的 $F(x)$ 即可递推出答案。</p>
+<p>我们把 $G(F(x))$ 在 $F_0(x)$ 处进行泰勒展开：</p>
+<script type="math/tex; mode=display">
+G(F(x))=G(F_0(x))+\frac{G'(F_0(x))}{1!}(F(x)-F_0(x))+\frac{G''(F_0(x))}{2!}(F(x)-F_0(x))^2+\cdots</script><p>因为 $F(x)$ 和 $F_0(x)$ 的最后 $\lceil\frac{n}{2}\rceil$ 项相同，所以 $(F(x)-F_0(x))^2$ 最低非 $0$ 项系数大于 $2\cdot\lceil\frac{n}{2}\rceil$ ，所以可以得到：</p>
+<script type="math/tex; mode=display">
+G(F(x))\equiv G(F_0(x))+G'(F_0(x))(F(x)-F_0(x))\ (mod\ x^n)\\
+F(x)\equiv F_0(x)-\frac{G(F_0(x))}{G'(F_0(x))}</script><p>然后对 $n=1$ 的时候，我们单独求出满足条件的 $F(x)$ 即可递推出答案。</p>
 <h1 id="多项式求逆"><a href="#多项式求逆" class="headerlink" title="多项式求逆"></a>多项式求逆</h1><h2 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h2><p>给出 $F(x)$ ，求出 $G(x)$ ，使得 $F(x)\cdot G(x)\equiv 1 \ (mod\ x^n)$ ，系数对 $998244353$ 取模。</p>
 <h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h2><p>我们设 $H(x)$ 满足 $F(x)\cdot H(x)\equiv 1\ (mod\ x^{\lceil\frac{n}{2}\rceil})$ 。</p>
 <p>而显然 $F(x)\cdot G(x)\equiv 1 \ (mod\ x^{\lceil\frac{n}{2}\rceil})$ 。</p>
 <p>两者相减，我们可以得到 $F(x)\cdot(G(x)-H(x))\equiv 0\ (mod\ x^{\lceil\frac{n}{2}\rceil})$ 。</p>
 <p>所以 $G(x)-H(x)\equiv 0\ (mod\ x^{\lceil\frac{n}{2}\rceil})$ 。</p>
-<p>我们将等式平方，可以得到：<br>$$<br>G(x)^2-2\cdot G(x)H(x)+H(x)^2\equiv 0\ (mod\ x^n)<br>$$<br>同时乘上 $F(x)$ ，则：<br>$$<br>F(x)\cdot G(x)^2-2\cdot F(x)\cdot G(x)\cdot H(x)+F(x)\cdot H(x)^2\equiv 0\ (mod\ x^n)<br>$$<br>因为 $F(x)\cdot G(x)=1$  ，所以我们有：<br>$$<br>G(x)\equiv 2\cdot H(x)-F(x)\cdot H(x)^2\ (mod\ x^n)<br>$$<br>然后我们就可以根据这个等式倍增求解了，每次算出上一层的 $H(x)$ ，然后推出 $G(x)$ ，时间复杂度为 $O(n\log n)$ 。</p>
-<h1 id="分治-FFT"><a href="#分治-FFT" class="headerlink" title="分治 $FFT$"></a>分治 $FFT$</h1><h2 id="问题描述-2"><a href="#问题描述-2" class="headerlink" title="问题描述"></a>问题描述</h2><p>已知一个长度为 $n$ 的数组 $g[0],g[1],\cdots,g[n-1]$ ，求 $f[0],f[1],\cdots,f[n-1]$ ，其中：<br>$$<br>f[i]=\sum_{j=1}^if[i-j]\cdot g[j]<br>$$<br>边界为 $f[0]=1,g[0]=0$ ，答案对 $998244353$ 取模。</p>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h2><p>我们先对 $f[i]$ 的递推式变一下形。<br>$$<br>f[i]=\sum_{j=0}^{i+1} f[i-j]\cdot g[j]<br>$$<br>因为 $g[0]=0$ ，所以上下是完全等价的。</p>
+<p>我们将等式平方，可以得到：</p>
+<script type="math/tex; mode=display">
+G(x)^2-2\cdot G(x)H(x)+H(x)^2\equiv 0\ (mod\ x^n)</script><p>同时乘上 $F(x)$ ，则：</p>
+<script type="math/tex; mode=display">
+F(x)\cdot G(x)^2-2\cdot F(x)\cdot G(x)\cdot H(x)+F(x)\cdot H(x)^2\equiv 0\ (mod\ x^n)</script><p>因为 $F(x)\cdot G(x)=1$  ，所以我们有：</p>
+<script type="math/tex; mode=display">
+G(x)\equiv 2\cdot H(x)-F(x)\cdot H(x)^2\ (mod\ x^n)</script><p>然后我们就可以根据这个等式倍增求解了，每次算出上一层的 $H(x)$ ，然后推出 $G(x)$ ，时间复杂度为 $O(n\log n)$ 。</p>
+<h1 id="分治-FFT"><a href="#分治-FFT" class="headerlink" title="分治 $FFT$"></a>分治 $FFT$</h1><h2 id="问题描述-2"><a href="#问题描述-2" class="headerlink" title="问题描述"></a>问题描述</h2><p>已知一个长度为 $n$ 的数组 $g[0],g[1],\cdots,g[n-1]$ ，求 $f[0],f[1],\cdots,f[n-1]$ ，其中：</p>
+<script type="math/tex; mode=display">
+f[i]=\sum_{j=1}^if[i-j]\cdot g[j]</script><p>边界为 $f[0]=1,g[0]=0$ ，答案对 $998244353$ 取模。</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h2><p>我们先对 $f[i]$ 的递推式变一下形。</p>
+<script type="math/tex; mode=display">
+f[i]=\sum_{j=0}^{i+1} f[i-j]\cdot g[j]</script><p>因为 $g[0]=0$ ，所以上下是完全等价的。</p>
 <p>我们设 $F(x),G(x)$ 分别为数组 $f,g$ 的生成函数。</p>
-<p>我们可以得到：<br>$$<br>F(x)\cdot G(x)=\sum_{i=0}^{\infin} x^i\sum_{j=0}^i f[i-j]\cdot g[j]\<br>=\sum_{i=1}^{\infin}f[i-1]\cdot x^i<br>$$<br>可以发现和 $F(x)$ 相比，我们有：<br>$$<br>F(x)\cdot G(x)=F(x)-f[0]\<br>F(x)\cdot(1-G(x))=f[0]\<br>F(x)=f[0]\cdot (1-G(x))^{-1}=(1-G(x))^{-1}<br>$$<br>然后就可以直接上多项式求逆的模板了。</p>
+<p>我们可以得到：</p>
+<script type="math/tex; mode=display">
+F(x)\cdot G(x)=\sum_{i=0}^{\infin} x^i\sum_{j=0}^i f[i-j]\cdot g[j]\\
+=\sum_{i=1}^{\infin}f[i-1]\cdot x^i</script><p>可以发现和 $F(x)$ 相比，我们有：</p>
+<script type="math/tex; mode=display">
+F(x)\cdot G(x)=F(x)-f[0]\\
+F(x)\cdot(1-G(x))=f[0]\\
+F(x)=f[0]\cdot (1-G(x))^{-1}=(1-G(x))^{-1}</script><p>然后就可以直接上多项式求逆的模板了。</p>
 <h1 id="多项式对数函数（多项式-ln-）"><a href="#多项式对数函数（多项式-ln-）" class="headerlink" title="多项式对数函数（多项式 $\ln$ ）"></a>多项式对数函数（多项式 $\ln$ ）</h1><h2 id="问题描述-3"><a href="#问题描述-3" class="headerlink" title="问题描述"></a>问题描述</h2><p>给出一个 $n-1$ 次多项式 $A(x)$ ， 求一个 $mod\ x^n$ 下的多项式 $B(x)$ ，满足 $B(x)=\ln A(x)$ 。</p>
 <h2 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h2><p>我们定义 $G(x)=F(A(x)),F(x)=\ln x$ 。</p>
-<p>根据链式法则，我们有：<br>$$<br>G’(x)=F’(A(x))\cdot A’(x)\<br>G’(x)=\frac{A’(x)}{A(x)}<br>$$<br>所以我们只需要对 $A(x)$ 求逆，即可算出 $G’(x)$ 。</p>
+<p>根据链式法则，我们有：</p>
+<script type="math/tex; mode=display">
+G'(x)=F'(A(x))\cdot A'(x)\\
+G'(x)=\frac{A'(x)}{A(x)}</script><p>所以我们只需要对 $A(x)$ 求逆，即可算出 $G’(x)$ 。</p>
 <p>由于求导和不定积分是互逆的，所以我们再对 $G’(x)$ 求一个积分即可得到 $G(x)$ 。</p>
 <ul>
 <li>求导公式： $F(x)=x^n,F’(x)=n\cdot x^{n-1}$ 。</li>
 <li>积分公式： $\int x^ndx=\frac{1}{n+1}x^{n+1}$ 。</li>
 </ul>
 <h1 id="多项式指数函数（多项式-exp-）"><a href="#多项式指数函数（多项式-exp-）" class="headerlink" title="多项式指数函数（多项式 $exp$ ）"></a>多项式指数函数（多项式 $exp$ ）</h1><h2 id="问题描述-4"><a href="#问题描述-4" class="headerlink" title="问题描述"></a>问题描述</h2><p>给出一个 $n-1$ 次多项式，求一个 $mod\ x^n$ 下的多项式 $B(x)$ ，满足 $B(x)\equiv e^{A(x)}$ 。</p>
-<h2 id="Solution-4"><a href="#Solution-4" class="headerlink" title="Solution"></a>Solution</h2><p>我们先对原式取一个 $\ln$ ，可以得到：<br>$$<br>\ln B(x)-A(x)=0<br>$$<br>我们设 $G(B(x))=\ln B(x)-A(x)$ ，那么就要求这一个函数的零点。我们将 $B(x)$ 看做变量， $A(x)$ 看做常量，对 $G(B(x))$ 求导，可以得到 $G’(B(x))=\frac{1}{B(x)}$ 。</p>
-<p>代入牛顿迭代的公式得：<br>$$<br>B(x)\equiv B_0(x)-\frac{G(B_0(x))}{G’(B_0(x))}\ (mod\ x^n)\<br>B(x)\equiv B_0(x)(1-\ln B_0(x)+A(x))\ (mod\ x^n)<br>$$<br>因为 $A(0)=0$ ，所以 $B(x)$ 的常数项为 $1$ ，剩下的就是各种板子了。</p>
+<h2 id="Solution-4"><a href="#Solution-4" class="headerlink" title="Solution"></a>Solution</h2><p>我们先对原式取一个 $\ln$ ，可以得到：</p>
+<script type="math/tex; mode=display">
+\ln B(x)-A(x)=0</script><p>我们设 $G(B(x))=\ln B(x)-A(x)$ ，那么就要求这一个函数的零点。我们将 $B(x)$ 看做变量， $A(x)$ 看做常量，对 $G(B(x))$ 求导，可以得到 $G’(B(x))=\frac{1}{B(x)}$ 。</p>
+<p>代入牛顿迭代的公式得：</p>
+<script type="math/tex; mode=display">
+B(x)\equiv B_0(x)-\frac{G(B_0(x))}{G'(B_0(x))}\ (mod\ x^n)\\
+B(x)\equiv B_0(x)(1-\ln B_0(x)+A(x))\ (mod\ x^n)</script><p>因为 $A(0)=0$ ，所以 $B(x)$ 的常数项为 $1$ ，剩下的就是各种板子了。</p>
 <h1 id="多项式除法"><a href="#多项式除法" class="headerlink" title="多项式除法"></a>多项式除法</h1><h2 id="问题描述-5"><a href="#问题描述-5" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个 $n$ 次多项式 $F(x)$ 和一个 $m$ 次多项式 $G(x)$ ，请求出多项式 $Q(x),R(x)$ ，满足一下条件：</p>
 <ul>
 <li>$Q(x)$ 的次数为 $n-m$ ， $R(x)$ 的次数小于 $m$ </li>
@@ -353,12 +383,30 @@
 <li>$A_r(x)=x^n\cdot A(\frac{1}{x})$ 。</li>
 </ul>
 <p>显然，我们可以得到 $A_r(x),A(x)$ 的区别是系数翻转了。</p>
-<p>开始推式子：<br>$$<br>F(x)=Q(x)\cdot G(x)+R(x)\<br>F(\frac{1}{x})=Q(\frac{1}{x})\cdot G(\frac{1}{x})+R(\frac{1}{x})\<br>x^n\cdot F(\frac{1}{x})=x^{n-m}\cdot Q(\frac{1}{x})\cdot x^m\cdot G(\frac{1}{x})+x^{n-m+1}\cdot x^{m-1}\cdot R(\frac{1}{x})\<br>F_r(x)=Q_r(x)\cdot G_r(x)+x^{n-m+1}\cdot R_r(x)<br>$$<br>在模 $x^{n-m+1}$ 的意义下，我们可以得到：<br>$$<br>F_r(x)=Q_r(x)\cdot G_r(x)\<br>Q_r(x)=\frac{F_r(x)}{G_r(x)}<br>$$<br>然后 $R(x)=F(x)-G(x)\cdot Q(x)$ 。</p>
+<p>开始推式子：</p>
+<script type="math/tex; mode=display">
+F(x)=Q(x)\cdot G(x)+R(x)\\
+F(\frac{1}{x})=Q(\frac{1}{x})\cdot G(\frac{1}{x})+R(\frac{1}{x})\\
+x^n\cdot F(\frac{1}{x})=x^{n-m}\cdot Q(\frac{1}{x})\cdot x^m\cdot G(\frac{1}{x})+x^{n-m+1}\cdot x^{m-1}\cdot R(\frac{1}{x})\\
+F_r(x)=Q_r(x)\cdot G_r(x)+x^{n-m+1}\cdot R_r(x)</script><p>在模 $x^{n-m+1}$ 的意义下，我们可以得到：</p>
+<script type="math/tex; mode=display">
+F_r(x)=Q_r(x)\cdot G_r(x)\\
+Q_r(x)=\frac{F_r(x)}{G_r(x)}</script><p>然后 $R(x)=F(x)-G(x)\cdot Q(x)$ 。</p>
 <h1 id="多项式开根"><a href="#多项式开根" class="headerlink" title="多项式开根"></a>多项式开根</h1><h2 id="问题描述-6"><a href="#问题描述-6" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个 $n-1$ 次多项式 $A(x)$ ，求一个在 $mod\ x^n$ 意义下的多项式 $B(x)$ ，使得 $B^2(x)\equiv A(x)\ (mod\ x^n)$ 。若有多解，请取零次项系数较小的作为答案。</p>
-<h2 id="Solution-6"><a href="#Solution-6" class="headerlink" title="Solution"></a>Solution</h2><p>我们假设已经求出一个 $H(x)$ ，满足：<br>$$<br>H^2(x)\equiv A(x)\ (mod\ x^{\lceil\frac{n}{2}\rceil})<br>$$<br>显然，我们有：<br>$$<br>H(x)\equiv G(x)\ (mod\ x^{\lceil\frac{n}{2}\rceil})\<br>H(x)-G(x)\equiv 0\ (mod\ x^{\lceil\frac{n}{2}\rceil})\<br>H^2(x)-2\cdot H(x)\cdot G(x)+G^2(x)\equiv 0\ (mod\ x^n)\<br>A(x)-2\cdot H(x)\cdot G(x)+H^2(x)\equiv 0\ (mod\ x^n)\<br>G(x)=\frac{A(x)+H^2(x)}{2\cdot H(x)}\<br>G(x)=\frac{A(x)\cdot H’(x)+H(x)}{2}<br>$$</p>
-<h1 id="多项式快速幂"><a href="#多项式快速幂" class="headerlink" title="多项式快速幂"></a>多项式快速幂</h1><h2 id="问题描述-7"><a href="#问题描述-7" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个 $n-1$ 次多项式，求一个在 $mod\ x^n$ 意义下的多项式 $B(x)$ ，使得 $B(x)\equiv A^k(x)\ (mod\ x^n)$ 。</p>
-<h2 id="Solution-7"><a href="#Solution-7" class="headerlink" title="Solution"></a>Solution</h2><p>两边取 $\ln$ ，可以得到：<br>$$<br>\ln B(x)\equiv k\ln A(x)\ (mod\ x^n)\<br>B(x)\equiv e^{k\ln A(x)}\ (mod\ x^n)<br>$$</p>
-
+<h2 id="Solution-6"><a href="#Solution-6" class="headerlink" title="Solution"></a>Solution</h2><p>我们假设已经求出一个 $H(x)$ ，满足：</p>
+<script type="math/tex; mode=display">
+H^2(x)\equiv A(x)\ (mod\ x^{\lceil\frac{n}{2}\rceil})</script><p>显然，我们有：</p>
+<script type="math/tex; mode=display">
+H(x)\equiv G(x)\ (mod\ x^{\lceil\frac{n}{2}\rceil})\\
+H(x)-G(x)\equiv 0\ (mod\ x^{\lceil\frac{n}{2}\rceil})\\
+H^2(x)-2\cdot H(x)\cdot G(x)+G^2(x)\equiv 0\ (mod\ x^n)\\
+A(x)-2\cdot H(x)\cdot G(x)+H^2(x)\equiv 0\ (mod\ x^n)\\
+G(x)=\frac{A(x)+H^2(x)}{2\cdot H(x)}\\
+G(x)=\frac{A(x)\cdot H'(x)+H(x)}{2}</script><h1 id="多项式快速幂"><a href="#多项式快速幂" class="headerlink" title="多项式快速幂"></a>多项式快速幂</h1><h2 id="问题描述-7"><a href="#问题描述-7" class="headerlink" title="问题描述"></a>问题描述</h2><p>给定一个 $n-1$ 次多项式，求一个在 $mod\ x^n$ 意义下的多项式 $B(x)$ ，使得 $B(x)\equiv A^k(x)\ (mod\ x^n)$ 。</p>
+<h2 id="Solution-7"><a href="#Solution-7" class="headerlink" title="Solution"></a>Solution</h2><p>两边取 $\ln$ ，可以得到：</p>
+<script type="math/tex; mode=display">
+\ln B(x)\equiv k\ln A(x)\ (mod\ x^n)\\
+B(x)\equiv e^{k\ln A(x)}\ (mod\ x^n)</script>
       
     </div>
     
@@ -473,7 +521,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">130</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

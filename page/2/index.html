@@ -249,6 +249,135 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/12/24/P3251-[JLOI2012]时间流逝/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TheShadow">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TheShadow">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/24/P3251-[JLOI2012]时间流逝/" itemprop="url">P3251 [JLOI2012]时间流逝</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-24T08:09:01+08:00">
+                2019-12-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          闲扯感觉洛谷上的难度评价有问题啊。。。
+题面P3251 [JLOI2012]时间流逝
+Solution先简化题意：
+给定 $n$ 个数，若当前的和为 $0$ ，那么可能随机的从这 $n$ 这个数中选一个，否则只能选择不大于当前已有值的最小值的数。手中有数时，有 $p$ 的概率去掉一个最小的数，问期望
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/12/24/P3251-[JLOI2012]时间流逝/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/12/23/P5643-[PKUWC2018]随机游走/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -323,7 +452,9 @@
           闲扯 $min-max$ 容斥 $+$ 树上高斯消元 $+$ 子集和变换
 大概是叫这个吧
 题面P5643 [PKUWC2018]随机游走
-Solution我们设 $E_i$ 表示到达点 $i$ 的期望时间。问题就是求：$$\max_{i\in S}(E_i)$$显然可以用 $min-max$ 容斥来
+Solution我们设 $E_i$ 表示到达点 $i$ 的期望时间。问题就是求：
+
+\max_{i\in S}(E_i)显然可以用 $min-max$ 容斥来解决
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -452,7 +583,11 @@ Solution我们设 $E_i$ 表示到达点 $i$ 的期望时间。问题就是求：
           闲扯树上高斯消元模板题。
 题面Maze
 Solution设 $E(u)$ 表示在 $u$ 点时，还需走的边数，那么 $E(1)$ 即为所求。
-若 $u$ 是叶节点，我们有：$$E(u)=k_u E(1)+(1-k_u-e_u)(E_{fa_u}+1)$$否则，我们有：$$E(u)=k_u E(1)+
+若 $u$ 是叶节点，我们有：
+
+E(u)=k_u E(1)+(1-k_u-e_u)(E_{fa_u}+1)否则，我们有：
+
+E(u)=k_u E(1)+\s
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -578,7 +713,11 @@ Solution设 $E(u)$ 表示在 $u$ 点时，还需走的边数，那么 $E(1)$ 即
       
         
           
-          容斥学习笔记容斥的两种基本形式：$$|\bigcup_{i=1}^n A_i|=\sum_{k=1}^n (-1)^{k+1}(\sum_{1\leq i_1&lt;\cdots&lt;i_k\leq n}|A_{i_1}\cap\cdots\cap A_{i_k}|)\|\bigcap_{i=1}
+          容斥学习笔记容斥的两种基本形式：
+
+|\bigcup_{i=1}^n A_i|=\sum_{k=1}^n (-1)^{k+1}(\sum_{1\leq i_1$min-max$ 容斥：
+
+max\{S\}=\sum_{T\in S} (-1)^{|T|+1}min\{T\}Ribbons on Tr
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1098,7 +1237,9 @@ $T1$Solution
           
           闲扯矩阵树逐渐开始变得玄学了起来。。。
 题面P3317 [SDOI2014]重建
-Solution题目要求的式子：$$\sum_{Tree}\prod_{(u,v)\in E} P_{u,v}\prod_{(u,v)\notin E} (1-P_{u,v})$$如果我们将 $P_{u,v}$ 看做这
+Solution题目要求的式子：
+
+\sum_{Tree}\prod_{(u,v)\in E} P_{u,v}\prod_{(u,v)\notin E} (1-P_{u,v})如果我们将 $P_{u,v}$ 看做这条边
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1228,7 +1369,9 @@ Solution题目要求的式子：$$\sum_{Tree}\prod_{(u,v)\in E} P_{u,v}\prod_{(u
 题面P5517 [MtOI2019]幻想乡数学竞赛
 Solution直接暴力矩阵乘法肯定不行，复杂度爆了。
 考虑简化，可以发现这个式子很有规律。
-由高一的数列知识，我们做出如下操作：$$a_n=3\cdot a_{n-1}+a_{n-2}-3\cdot a_{n-3}+3^n\a
+由高一的数列知识，我们做出如下操作：
+
+a_n=3\cdot a_{n-1}+a_{n-2}-3\cdot a_{n-3}+3^n\\
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1399,140 +1542,11 @@ $T1$Solution我们设 $f_{u,k}$ 表示从 $fa_u$ 到 $1$ 这条链上，合法�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/12/15/P5395 【模板】第二类斯特林数·行/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="TheShadow">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TheShadow">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/15/P5395 【模板】第二类斯特林数·行/" itemprop="url">P5395 【模板】第二类斯特林数·行</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-15T21:17:53+08:00">
-                2019-12-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          闲扯多项式乘法练习题
-题面P5395 【模板】第二类斯特林数·行
-Solution我们设 $s_{n,m}=\begin{Bmatrix} n\ m\end{Bmatrix}$ 。
-考虑第二类斯特林数的通项式：$$s_{n,m}=\sum_{i=0}^m (-1)^iC_{m}^i\frac{(m-
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/12/15/P5395 【模板】第二类斯特林数·行/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1580,7 +1594,7 @@ Solution我们设 $s_{n,m}=\begin{Bmatrix} n\ m\end{Bmatrix}$ 。
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">130</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
