@@ -249,6 +249,136 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/12/24/P2473-[SCOI2008]奖励关/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TheShadow">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TheShadow">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/24/P2473-[SCOI2008]奖励关/" itemprop="url">P2473 [SCOI2008]奖励关</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-24T09:03:31+08:00">
+                2019-12-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          闲扯期望用倒推，这算是一个结论吗。。？
+题面P2473 [SCOI2008]奖励关
+Solution由于这是期望题，我们考虑倒推（雾。
+设 $dp_{i,S}$ 表示当前在第 $i$ 步，还未选择时已选集合为 $S$ 时，期望还能得到的分数。
+若能够选择第 $j$ 个物品，那么：$$dp_{i,S}
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/12/24/P2473-[SCOI2008]奖励关/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/12/24/P3251-[JLOI2012]时间流逝/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -452,9 +582,7 @@ Solution先简化题意：
           闲扯 $min-max$ 容斥 $+$ 树上高斯消元 $+$ 子集和变换
 大概是叫这个吧
 题面P5643 [PKUWC2018]随机游走
-Solution我们设 $E_i$ 表示到达点 $i$ 的期望时间。问题就是求：
-
-\max_{i\in S}(E_i)显然可以用 $min-max$ 容斥来解决
+Solution我们设 $E_i$ 表示到达点 $i$ 的期望时间。问题就是求：$$\max_{i\in S}(E_i)$$显然可以用 $min-max$ 容斥来
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -583,11 +711,7 @@ Solution我们设 $E_i$ 表示到达点 $i$ 的期望时间。问题就是求：
           闲扯树上高斯消元模板题。
 题面Maze
 Solution设 $E(u)$ 表示在 $u$ 点时，还需走的边数，那么 $E(1)$ 即为所求。
-若 $u$ 是叶节点，我们有：
-
-E(u)=k_u E(1)+(1-k_u-e_u)(E_{fa_u}+1)否则，我们有：
-
-E(u)=k_u E(1)+\s
+若 $u$ 是叶节点，我们有：$$E(u)=k_u E(1)+(1-k_u-e_u)(E_{fa_u}+1)$$否则，我们有：$$E(u)=k_u E(1)+
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -713,11 +837,7 @@ E(u)=k_u E(1)+\s
       
         
           
-          容斥学习笔记容斥的两种基本形式：
-
-|\bigcup_{i=1}^n A_i|=\sum_{k=1}^n (-1)^{k+1}(\sum_{1\leq i_1$min-max$ 容斥：
-
-max\{S\}=\sum_{T\in S} (-1)^{|T|+1}min\{T\}Ribbons on Tr
+          容斥学习笔记容斥的两种基本形式：$$|\bigcup_{i=1}^n A_i|=\sum_{k=1}^n (-1)^{k+1}(\sum_{1\leq i_1&lt;\cdots&lt;i_k\leq n}|A_{i_1}\cap\cdots\cap A_{i_k}|)\|\bigcap_{i=1}
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1237,9 +1357,7 @@ $T1$Solution
           
           闲扯矩阵树逐渐开始变得玄学了起来。。。
 题面P3317 [SDOI2014]重建
-Solution题目要求的式子：
-
-\sum_{Tree}\prod_{(u,v)\in E} P_{u,v}\prod_{(u,v)\notin E} (1-P_{u,v})如果我们将 $P_{u,v}$ 看做这条边
+Solution题目要求的式子：$$\sum_{Tree}\prod_{(u,v)\in E} P_{u,v}\prod_{(u,v)\notin E} (1-P_{u,v})$$如果我们将 $P_{u,v}$ 看做这
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1369,142 +1487,11 @@ Solution题目要求的式子：
 题面P5517 [MtOI2019]幻想乡数学竞赛
 Solution直接暴力矩阵乘法肯定不行，复杂度爆了。
 考虑简化，可以发现这个式子很有规律。
-由高一的数列知识，我们做出如下操作：
-
-a_n=3\cdot a_{n-1}+a_{n-2}-3\cdot a_{n-3}+3^n\\
+由高一的数列知识，我们做出如下操作：$$a_n=3\cdot a_{n-1}+a_{n-2}-3\cdot a_{n-3}+3^n\a
           ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/12/17/P5517-[MtOI2019]幻想乡数学竞赛/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://DCOITheShadow.github.io/2019/12/16/test20191216 题解/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="TheShadow">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TheShadow">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/16/test20191216 题解/" itemprop="url">test20191216</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-16T20:58:06+08:00">
-                2019-12-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          闲扯我觉得我可以直接入土了。。。
-$T1$ 题面看错，数据范围看漏，直接爆零。。
-题面[2020WC集训训练赛day2]
-$T1$Solution我们设 $f_{u,k}$ 表示从 $fa_u$ 到 $1$ 这条链上，合法的 $1\sim k$ 的序列个数；设 $g_{u,k}$ 表示 $u$ 的子
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/12/16/test20191216 题解/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1594,7 +1581,7 @@ $T1$Solution我们设 $f_{u,k}$ 表示从 $fa_u$ 到 $1$ 这条链上，合法�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

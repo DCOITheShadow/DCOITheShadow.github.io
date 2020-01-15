@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="容斥学习笔记容斥的两种基本形式：  |\bigcup_{i=1}^n A_i|=\sum_{k=1}^n (-1)^{k+1}(\sum_{1\leq i_1">
+<meta name="description" content="容斥学习笔记容斥的两种基本形式：$$|\bigcup_{i=1}^n A_i|=\sum_{k=1}^n (-1)^{k+1}(\sum_{1\leq i_1&amp;lt;\cdots&amp;lt;i_k\leq n}|A_{i_1}\cap\cdots\cap A_{i_k}|)\|\bigcap_{i=1}^n A_i|=\sum_{S\subseteq [n]}(-1)^{|S|}|\bigcap_{i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="容斥学习笔记">
 <meta property="og:url" content="https://DCOITheShadow.github.io/2019/12/20/容斥学习笔记/index.html">
 <meta property="og:site_name" content="TheShadow">
-<meta property="og:description" content="容斥学习笔记容斥的两种基本形式：  |\bigcup_{i=1}^n A_i|=\sum_{k=1}^n (-1)^{k+1}(\sum_{1\leq i_1">
+<meta property="og:description" content="容斥学习笔记容斥的两种基本形式：$$|\bigcup_{i=1}^n A_i|=\sum_{k=1}^n (-1)^{k+1}(\sum_{1\leq i_1&amp;lt;\cdots&amp;lt;i_k\leq n}|A_{i_1}\cap\cdots\cap A_{i_k}|)\|\bigcap_{i=1}^n A_i|=\sum_{S\subseteq [n]}(-1)^{|S|}|\bigcap_{i">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-01-04T03:28:06.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="容斥学习笔记">
-<meta name="twitter:description" content="容斥学习笔记容斥的两种基本形式：  |\bigcup_{i=1}^n A_i|=\sum_{k=1}^n (-1)^{k+1}(\sum_{1\leq i_1">
+<meta name="twitter:description" content="容斥学习笔记容斥的两种基本形式：$$|\bigcup_{i=1}^n A_i|=\sum_{k=1}^n (-1)^{k+1}(\sum_{1\leq i_1&amp;lt;\cdots&amp;lt;i_k\leq n}|A_{i_1}\cap\cdots\cap A_{i_k}|)\|\bigcap_{i=1}^n A_i|=\sum_{S\subseteq [n]}(-1)^{|S|}|\bigcap_{i">
 
 
 
@@ -319,16 +319,10 @@
       
 
       
-        <h1 id="容斥学习笔记"><a href="#容斥学习笔记" class="headerlink" title="容斥学习笔记"></a>容斥学习笔记</h1><p>容斥的两种基本形式：</p>
-<script type="math/tex; mode=display">
-|\bigcup_{i=1}^n A_i|=\sum_{k=1}^n (-1)^{k+1}(\sum_{1\leq i_1<\cdots<i_k\leq n}|A_{i_1}\cap\cdots\cap A_{i_k}|)\\
-|\bigcap_{i=1}^n A_i|=\sum_{S\subseteq [n]}(-1)^{|S|}|\bigcap_{i\in S}\overline{A_i}|</script><p>$min-max$ 容斥：</p>
-<script type="math/tex; mode=display">
-max\{S\}=\sum_{T\in S} (-1)^{|T|+1}min\{T\}</script><h2 id="Ribbons-on-Tree"><a href="#Ribbons-on-Tree" class="headerlink" title="Ribbons on Tree"></a>Ribbons on Tree</h2><p><a href="https://atcoder.jp/contests/arc101/tasks/arc101_c" target="_blank" rel="noopener">原题链接</a></p>
+        <h1 id="容斥学习笔记"><a href="#容斥学习笔记" class="headerlink" title="容斥学习笔记"></a>容斥学习笔记</h1><p>容斥的两种基本形式：<br>$$<br>|\bigcup_{i=1}^n A_i|=\sum_{k=1}^n (-1)^{k+1}(\sum_{1\leq i_1&lt;\cdots&lt;i_k\leq n}|A_{i_1}\cap\cdots\cap A_{i_k}|)\<br>|\bigcap_{i=1}^n A_i|=\sum_{S\subseteq [n]}(-1)^{|S|}|\bigcap_{i\in S}\overline{A_i}|<br>$$<br>$min-max$ 容斥：<br>$$<br>max{S}=\sum_{T\in S} (-1)^{|T|+1}min{T}<br>$$</p>
+<h2 id="Ribbons-on-Tree"><a href="#Ribbons-on-Tree" class="headerlink" title="Ribbons on Tree"></a>Ribbons on Tree</h2><p><a href="https://atcoder.jp/contests/arc101/tasks/arc101_c" target="_blank" rel="noopener">原题链接</a></p>
 <h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>我们设 $f(S)$ 表示 $S$ 中的所有边都没有被覆盖的方案数，</p>
-<p>那么显然，我们要求的式子就是：</p>
-<script type="math/tex; mode=display">
-|\bigcap_{i=1}^n \overline{f(A_i)}|=\sum_{S\in [n]} (-1)^{|S|}|\bigcap_{i\in S}f(A_i)|</script><p>考虑当 $S$ 已知的时候怎么计算 $f(S)$ 。</p>
+<p>那么显然，我们要求的式子就是：<br>$$<br>|\bigcap_{i=1}^n \overline{f(A_i)}|=\sum_{S\in [n]} (-1)^{|S|}|\bigcap_{i\in S}f(A_i)|<br>$$<br>考虑当 $S$ 已知的时候怎么计算 $f(S)$ 。</p>
 <p>此时这幅图被分成了 $|S|+1$ 块，答案显然是每一块的答案乘起来。</p>
 <p>每一块内随便分配，方案数显然为 $g_n=[2|n]\cdot (n-1)!!$ 。</p>
 <p>接下来最直接的想法就是枚举 $S$ ，然后直接计算。</p>
@@ -344,7 +338,7 @@ max\{S\}=\sum_{T\in S} (-1)^{|T|+1}min\{T\}</script><h2 id="Ribbons-on-Tree"><a 
 <p><a href="https://atcoder.jp/contests/arc101/submissions/9027130" target="_blank" rel="noopener">code</a></p>
 <h2 id="【集训队作业-2018-】小-Z-的礼物"><a href="#【集训队作业-2018-】小-Z-的礼物" class="headerlink" title="【集训队作业 $2018$ 】小 $Z$ 的礼物"></a>【集训队作业 $2018$ 】小 $Z$ 的礼物</h2><p><a href="http://uoj.ac/problem/422" target="_blank" rel="noopener">原题链接</a></p>
 <h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><p>$min-max$ 容斥 $+$ 轮廓线 $DP$ 。</p>
-<p>我们要求的是 $\max\{f(A_i)\}$ ，其中 $f(i)$ 表示 $i$ 被选中的期望步数， $A_i$ 表示第 $i$ 个小 $Z$ 喜欢的礼物。</p>
+<p>我们要求的是 $\max{f(A_i)}$ ，其中 $f(i)$ 表示 $i$ 被选中的期望步数， $A_i$ 表示第 $i$ 个小 $Z$ 喜欢的礼物。</p>
 <p>这个显然可以直接套上 $min-max$ 容斥。</p>
 <p>所以现在我们需要求的是： $\sum_{T\in S}(-1)^{|T|+1}\min_{i\in T}(f(i))$ 。</p>
 <p>我们考虑对于单独的一个 $T$ ，我们如何计算。</p>
@@ -366,18 +360,15 @@ max\{S\}=\sum_{T\in S} (-1)^{|T|+1}min\{T\}</script><h2 id="Ribbons-on-Tree"><a 
 </ul>
 <p>这个至少出现了 $2$ 次显然是需要容斥的。</p>
 <p>我们设 $F(x)$ 表示 $[1..x]$ 每一个数都出现了 $0/1$ 次。</p>
-<p>那么最后的答案显然就是：</p>
-<script type="math/tex; mode=display">
-\sum_{i=0}^n(-1)^i\binom{n}{i} F(i)</script><p>考虑怎么算 $F(i)$ 。</p>
+<p>那么最后的答案显然就是：<br>$$<br>\sum_{i=0}^n(-1)^i\binom{n}{i} F(i)<br>$$<br>考虑怎么算 $F(i)$ 。</p>
 <p>首先，对于剩余的 $n-i$ 个，我们可以任意选择，一共有 $2^{n-i}$ 个 $[n]$ 的子集。</p>
 <p>然后我们枚举将这 $i$ 个数分入了 $k$ 个集合，但是有的可以不放。</p>
 <p>如果没有后面的限制，显然就是一个斯特林数。但是有后面的限制怎么做？</p>
 <p>考虑再加入一个集合作为“垃圾堆”，将所有不放的数放入该集合中，但是我们不知道哪个集合是“垃圾堆”，所以我们再往垃圾堆里面放入一个 $0$ ，这样就可以唯一确定一种分组了。</p>
 <p>那么问题就变成了将 $i+1$ 个数放入 $k+1$ 个集合的方案数，就可以直接上斯特林数了。</p>
 <p>所以 $F(i)=2^{2^{n-i}}\sum_{k=1}^i (2^{n-i})^kS_{i+1}^{k+1}$ ，其中 $S_i^j$ 表示第二类斯特林数的第 $i$ 行，第 $j$ 列，而 $(2^{n-i})^k$ 是把 $k$ 个集合并入剩下的 $n-i$ 个数里面。</p>
-<p>最终的答案就是：</p>
-<script type="math/tex; mode=display">
-\sum_{i=0}^n (-1)^i\binom{n}{i}2^{2^{n-i}}\sum_{k=1}^i (2^{n-i})^k\cdot S_{i+1}^{k+1}</script><p><a href="https://atcoder.jp/contests/arc096/submissions/9030039" target="_blank" rel="noopener">code</a></p>
+<p>最终的答案就是：<br>$$<br>\sum_{i=0}^n (-1)^i\binom{n}{i}2^{2^{n-i}}\sum_{k=1}^i (2^{n-i})^k\cdot S_{i+1}^{k+1}<br>$$</p>
+<p><a href="https://atcoder.jp/contests/arc096/submissions/9030039" target="_blank" rel="noopener">code</a></p>
 <h2 id="【HAOI2008】硬币购物"><a href="#【HAOI2008】硬币购物" class="headerlink" title="【HAOI2008】硬币购物"></a>【HAOI2008】硬币购物</h2><p><a href="https://www.luogu.com.cn/problem/P1450" target="_blank" rel="noopener">原题链接</a></p>
 <h3 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h3><p>直观想法：每次做一遍多重背包，复杂度可达 $O(4\sum_{i=1}^T s_i)$ （单调队列优化）。</p>
 <p>这个复杂度显然爆炸，考虑优化。</p>
@@ -503,7 +494,7 @@ max\{S\}=\sum_{T\in S} (-1)^{|T|+1}min\{T\}</script><h2 id="Ribbons-on-Tree"><a 
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">132</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
