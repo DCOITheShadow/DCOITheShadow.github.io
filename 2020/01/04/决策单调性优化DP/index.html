@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="TheShadow">
 <meta property="og:description" content="四边形不等式定义设 $w(x,y)$ 是定义在整数集合上的二元函数。若对于定义域上的任意整数 $a,b,c,d$ ，其中 $a\leq b\leq c\leq d$ ，都有 $w(a,d)+w(b,c)\geq w(a,c)+w(b,d)$ 成立，则称函数 $w$ 满足四边形不等式。 定理（另一种定义）设 $w(x,y)$ 是定义在整数集合上的二元函数。若对于定义域上的任意整数 $a,b$ ，其中">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-06T09:28:00.324Z">
+<meta property="og:updated_time" content="2020-01-17T08:55:43.531Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="决策单调性优化DP">
 <meta name="twitter:description" content="四边形不等式定义设 $w(x,y)$ 是定义在整数集合上的二元函数。若对于定义域上的任意整数 $a,b,c,d$ ，其中 $a\leq b\leq c\leq d$ ，都有 $w(a,d)+w(b,c)\geq w(a,c)+w(b,d)$ 成立，则称函数 $w$ 满足四边形不等式。 定理（另一种定义）设 $w(x,y)$ 是定义在整数集合上的二元函数。若对于定义域上的任意整数 $a,b$ ，其中">
@@ -334,7 +334,7 @@
 <p>考虑维护 $p$ 数组。最初 $p$ 数组全为 $0$ 。在 $i$ 循环的任意时刻，根据 $p[i]$ 的单调性， $p$ 的情况如下表所示：<br>$$<br>{j_1,j_1,j_2,j_3,j_3,j_3,j_4,j_4,j_5,j_5,j_5}\ |\ j_1&lt;j_2&lt;j_3&lt;j_4&lt;j_5<br>$$<br>当求出一个新的 $F[i]$ 时，我们考虑 $i$ 可以作为哪些 $F<a href="i'>i">i’</a>$ 的最优决策点。根据决策单调性，最终我们会找到一个位置，在该位置之前， $p$ 数组目前储存的决策都比 $i$ 好，在该位置之后， $p$ 数组目前储存的决策都比 $i$ 差。我们要做的就是快速找到这个位置，在 $p$ 数组中把该位置后的部分均改为 $i$ ：<br>$$<br>{j_1,j_1,j_2,j_3,j_3,i,i,i,i,i,i}\ |\ j_1&lt;j_2&lt;j_3&lt;i<br>$$<br>当然，直接修改效率很低。事实上，我们可以建立一个队列，代替 $p$ 数组。队列中保存若干个三元组 $(j,l,r)$ ，分别表示决策和管辖范围。</p>
 <p>另外，队列中没有必要保存管辖 $1\sim i-1$ 的部分，这样我们每次取出对头最为最优决策即可。</p>
 <h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="P1912-NOI2009-诗人小G"><a href="#P1912-NOI2009-诗人小G" class="headerlink" title="P1912 [NOI2009]诗人小G"></a><a href="https://www.luogu.com.cn/problem/P1912" target="_blank" rel="noopener">P1912 [NOI2009]诗人小G</a></h3><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>我们设 $dp_i$ 表示考虑了前 $i$ 个句子，诗的不协调程度，我们有：<br>$$<br>dp_i=\min_{j=0}^{i-1}(dp_j+|sum_i-sum_j+i-j-1-L|^p)<br>$$<br>这里面存在大量 $i,j$ 的高次乘积，不适用于单调队列或斜率优化。所以我们尝试判断决策单调性。</p>
-<p>我们需要证明：<br>$$<br>val(j,i+1)+val(j+1,i)\geq val(j,i)+val(j+1,i+1)\<br>val(j+1,i)-val(j+1,i+1)\geq val(j,i)-val(j,i+1)<br>$$</p>
+<p>我们需要证明：<br>$$<br>val(j,i+1)+val(j+1,i)\geq val(j,i)+val(j+1,i+1)\\<br>val(j+1,i)-val(j+1,i+1)\geq val(j,i)-val(j,i+1)<br>$$</p>
 <p>设 $u=(sum_i+i)-(sum_j+j)-(L-1)$ 。</p>
 <p>设 $v=(sum_i+i)-(sum_{j+1}+j+1)-(L-1)$ 。</p>
 <p>只需要证明 $|v|^p-|v+(a_{i+1}+1)|^p\geq |u|^p-|u+(a_{i+1}+1)|^p$ 。</p>
@@ -368,12 +368,12 @@
 </ol>
 <p>那么 $F$ 也满足四边形不等式。</p>
 <h3 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h3><p>当 $i+1=j$ 时， $F[i,j+1]+F[i+1,j]=F[i,i+2]+F[i+1,i+1]=F[i,i+2]$ 。</p>
-<p>若 $F[i,i+2]$ 的最优决策是 $i+1$ ，则：<br>$$<br>F[i,i+2]=F[i,i+1]+F[i+2,i+2]+w(i,i+2)\<br>=w(i,i+1)+w(i,i+2)\geq w(i,i+1)+w(i+1,i+2)\<br>=F[i,i+1]+F[i+1][i+2]=F[i,j]+F[i+1,j+1]<br>$$<br>类似的，可以得到最优决策是 $i$ 时， $F[i,i+2]\geq F[i,j]+F[i+1,j+1]$ 。</p>
+<p>若 $F[i,i+2]$ 的最优决策是 $i+1$ ，则：<br>$$<br>F[i,i+2]=F[i,i+1]+F[i+2,i+2]+w(i,i+2)\\<br>=w(i,i+1)+w(i,i+2)\geq w(i,i+1)+w(i+1,i+2)\\<br>=F[i,i+1]+F[i+1][i+2]=F[i,j]+F[i+1,j+1]<br>$$<br>类似的，可以得到最优决策是 $i$ 时， $F[i,i+2]\geq F[i,j]+F[i+1,j+1]$ 。</p>
 <p>所以当 $j-i=1$ 时，四边形不等式对 $F[i,j]$ 成立。</p>
 <p>接下来，我们使用数学归纳法证明。</p>
 <p>假设当 $j-i&lt;k$ 时，四边形不等式对 $F(i,j)$ 成立。考虑 $j-i=k$ 的情况，设 $F[i,j+1]$ 以 $x$ 为最优决策， $F[i+1,j]$ 以 $y$ 为最优决策。</p>
 <p>不妨设 $i+1\leq x\leq y$ 。</p>
-<p>根据 $x,y$ 的最优性，有：<br>$$<br>F[i,j+1]+F[i+1,j]=F[i,x]+F[x+1,j+1]+w(i,j+1)\<br>+F[i+1,y]+F[y+1,j]+w(i+1,j)<br>$$<br>对于 $F[i,j],F[i+1,j+1]$ ， $x,y$ 不一定是最优决策，故：<br>$$<br>F[i,j]+F[i+1,j+1]\leq F[i,x]+F[x+1,j]+w(i,j)\<br>+F[i+1,y]+F[y+1,j+1]+w(i+1,j+1)<br>$$<br>因为 $w$ 满足四边形不等式，所以 $w(i,j+1)+w(i+1,j)\geq w(i,j)+w(i+1,j+1)$ 。</p>
+<p>根据 $x,y$ 的最优性，有：<br>$$<br>F[i,j+1]+F[i+1,j]=F[i,x]+F[x+1,j+1]+w(i,j+1)\\<br>+F[i+1,y]+F[y+1,j]+w(i+1,j)<br>$$<br>对于 $F[i,j],F[i+1,j+1]$ ， $x,y$ 不一定是最优决策，故：<br>$$<br>F[i,j]+F[i+1,j+1]\leq F[i,x]+F[x+1,j]+w(i,j)\\<br>+F[i+1,y]+F[y+1,j+1]+w(i+1,j+1)<br>$$<br>因为 $w$ 满足四边形不等式，所以 $w(i,j+1)+w(i+1,j)\geq w(i,j)+w(i+1,j+1)$ 。</p>
 <p>根据归纳假设，有 $F[x+1,j+1]+F[y+1,j]\geq F[x+1,j]+F[y+1,j+1]$ 。</p>
 <p>由这 $4$ 个式子，我们可以得到 $F[i,j+1]+F[i+1,j]\geq F[i,j]+F[i+1,j+1]$ 。</p>
 <p>证毕。</p>
@@ -494,7 +494,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">132</span>
+                  <span class="site-state-item-count">133</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
