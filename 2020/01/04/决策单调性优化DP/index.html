@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="TheShadow">
 <meta property="og:description" content="四边形不等式定义设 $w(x,y)$ 是定义在整数集合上的二元函数。若对于定义域上的任意整数 $a,b,c,d$ ，其中 $a\leq b\leq c\leq d$ ，都有 $w(a,d)+w(b,c)\geq w(a,c)+w(b,d)$ 成立，则称函数 $w$ 满足四边形不等式。 定理（另一种定义）设 $w(x,y)$ 是定义在整数集合上的二元函数。若对于定义域上的任意整数 $a,b$ ，其中">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-17T08:55:43.531Z">
+<meta property="og:updated_time" content="2020-01-17T09:11:36.261Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="决策单调性优化DP">
 <meta name="twitter:description" content="四边形不等式定义设 $w(x,y)$ 是定义在整数集合上的二元函数。若对于定义域上的任意整数 $a,b,c,d$ ，其中 $a\leq b\leq c\leq d$ ，都有 $w(a,d)+w(b,c)\geq w(a,c)+w(b,d)$ 成立，则称函数 $w$ 满足四边形不等式。 定理（另一种定义）设 $w(x,y)$ 是定义在整数集合上的二元函数。若对于定义域上的任意整数 $a,b$ ，其中">
@@ -331,7 +331,7 @@
 <h3 id="证明：-1"><a href="#证明：-1" class="headerlink" title="证明："></a>证明：</h3><p>$\forall i\in[1,N],\forall j\in[0,p[i]-1]$ ，根据 $p[i]$ 的最优性，有：<br>$$<br>F[p[i]]+val(p[i],i)\leq F[j]+val(j,i)<br>$$<br>$\forall i’\in[i+1,N]$ ，因为 $val$ 满足四边形不等式，有：<br>$$<br>val(j,i’)+val(p[i],i)\geq val(j,i)+val(p[i],i’)<br>$$<br>移项得：<br>$$<br>val(p[i],i’)-val(p[i],i)\leq val(j,i’)-val(j,i)<br>$$<br>与第一个等式相加，有：<br>$$<br>F[p[i]]+val(p[i],i’)\leq F[j]+val(j,i’)<br>$$<br>这个不等式的含义为，以 $p[i]$ 作为 $F[i’]$ 的决策，比以 $j&lt;p[i]$ 作为 $F[i’]$ 的决策更优。换言之， $p[i’]\geq p[i]$ 。所以 $F$ 有决策单调性。</p>
 <p>证毕。</p>
 <p>当 $F$ 有决策单调性时，我们可以把 $F[i]=\min_{0\leq j&lt;i}{F[j]+val(j,i)}$ 的计算时间从 $O(N^2)$ 优化到 $O(N\log N)$ 。</p>
-<p>考虑维护 $p$ 数组。最初 $p$ 数组全为 $0$ 。在 $i$ 循环的任意时刻，根据 $p[i]$ 的单调性， $p$ 的情况如下表所示：<br>$$<br>{j_1,j_1,j_2,j_3,j_3,j_3,j_4,j_4,j_5,j_5,j_5}\ |\ j_1&lt;j_2&lt;j_3&lt;j_4&lt;j_5<br>$$<br>当求出一个新的 $F[i]$ 时，我们考虑 $i$ 可以作为哪些 $F<a href="i'>i">i’</a>$ 的最优决策点。根据决策单调性，最终我们会找到一个位置，在该位置之前， $p$ 数组目前储存的决策都比 $i$ 好，在该位置之后， $p$ 数组目前储存的决策都比 $i$ 差。我们要做的就是快速找到这个位置，在 $p$ 数组中把该位置后的部分均改为 $i$ ：<br>$$<br>{j_1,j_1,j_2,j_3,j_3,i,i,i,i,i,i}\ |\ j_1&lt;j_2&lt;j_3&lt;i<br>$$<br>当然，直接修改效率很低。事实上，我们可以建立一个队列，代替 $p$ 数组。队列中保存若干个三元组 $(j,l,r)$ ，分别表示决策和管辖范围。</p>
+<p>考虑维护 $p$ 数组。最初 $p$ 数组全为 $0$ 。在 $i$ 循环的任意时刻，根据 $p[i]$ 的单调性， $p$ 的情况如下表所示：<br>$$<br>{j_1,j_1,j_2,j_3,j_3,j_3,j_4,j_4,j_5,j_5,j_5}\ |\ j_1&lt;j_2&lt;j_3&lt;j_4&lt;j_5<br>$$<br>当求出一个新的 $F[i]$ 时，我们考虑 $i$ 可以作为哪些 $F[i’] (i’&gt;i)$ 的最优决策点。根据决策单调性，最终我们会找到一个位置，在该位置之前， $p$ 数组目前储存的决策都比 $i$ 好，在该位置之后， $p$ 数组目前储存的决策都比 $i$ 差。我们要做的就是快速找到这个位置，在 $p$ 数组中把该位置后的部分均改为 $i$ ：<br>$$<br>{j_1,j_1,j_2,j_3,j_3,i,i,i,i,i,i}\ |\ j_1&lt;j_2&lt;j_3&lt;i<br>$$<br>当然，直接修改效率很低。事实上，我们可以建立一个队列，代替 $p$ 数组。队列中保存若干个三元组 $(j,l,r)$ ，分别表示决策和管辖范围。</p>
 <p>另外，队列中没有必要保存管辖 $1\sim i-1$ 的部分，这样我们每次取出对头最为最优决策即可。</p>
 <h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="P1912-NOI2009-诗人小G"><a href="#P1912-NOI2009-诗人小G" class="headerlink" title="P1912 [NOI2009]诗人小G"></a><a href="https://www.luogu.com.cn/problem/P1912" target="_blank" rel="noopener">P1912 [NOI2009]诗人小G</a></h3><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>我们设 $dp_i$ 表示考虑了前 $i$ 个句子，诗的不协调程度，我们有：<br>$$<br>dp_i=\min_{j=0}^{i-1}(dp_j+|sum_i-sum_j+i-j-1-L|^p)<br>$$<br>这里面存在大量 $i,j$ 的高次乘积，不适用于单调队列或斜率优化。所以我们尝试判断决策单调性。</p>
 <p>我们需要证明：<br>$$<br>val(j,i+1)+val(j+1,i)\geq val(j,i)+val(j+1,i+1)\\<br>val(j+1,i)-val(j+1,i+1)\geq val(j,i)-val(j,i+1)<br>$$</p>
