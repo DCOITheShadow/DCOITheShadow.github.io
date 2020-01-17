@@ -331,7 +331,10 @@
 <p>我们需要将这些元素分成 $N+\sum k_i$ 份，每份的大小都非负。</p>
 <p>根据隔板法，我们可以知道方案数为 $\binom{N+M-1}{N+\sum k_i-1}$ 。可以发现，这个值只与 $\sum k_i$ 有关。</p>
 <p>回到原问题，我们要求的是 $\prod_{i=1}^N x_i^{k_i}$ 。</p>
-<p>我们将幂次转化为下降幂，有：<br>$$<br>\prod_{i=1}^N \sum_{j=0}^{k_i}S_{k_i}^j x_i^{\underline{j}}\<br>=\prod_{i=1}^N \sum_{j=0}^{k_i}S_{k_i}^j\cdot j!\cdot \binom{x_i}{j}<br>$$<br>其中 $S$ 为第二类斯特林数。</p>
+<p>我们将幂次转化为下降幂，有：</p>
+<script type="math/tex; mode=display">
+\prod_{i=1}^N \sum_{j=0}^{k_i}S_{k_i}^j x_i^{\underline{j}}\\
+=\prod_{i=1}^N \sum_{j=0}^{k_i}S_{k_i}^j\cdot j!\cdot \binom{x_i}{j}</script><p>其中 $S$ 为第二类斯特林数。</p>
 <p>这个东西我们用分治 $NTT$ 计算即可。</p>
 <p><a href="http://zhengruioi.com/submission/202410" target="_blank" rel="noopener">code</a></p>
 <h1 id="T3"><a href="#T3" class="headerlink" title="$T3$"></a>$T3$</h1><p>最大费用最大流。</p>

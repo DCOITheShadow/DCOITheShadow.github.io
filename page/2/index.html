@@ -324,7 +324,9 @@
 题面CF438E The Child and Binary Tree
 Solution设 $F(x)$ 表示权值为 $x$ 的二叉树的个数。
 设 $C(x)$ 表示是否能选择权值为 $x$ 的点。
-考虑枚举根结点的权值和左右子树的权值。$$F(x)=\
+考虑枚举根结点的权值和左右子树的权值。
+
+F(x)=\
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -454,7 +456,9 @@ Solution设 $F(x)$ 表示权值为 $x$ 的二叉树的个数。
 题面P2473 [SCOI2008]奖励关
 Solution由于这是期望题，我们考虑倒推（雾。
 设 $dp_{i,S}$ 表示当前在第 $i$ 步，还未选择时已选集合为 $S$ 时，期望还能得到的分数。
-若能够选择第 $j$ 个物品，那么：$$dp_{i,S}
+若能够选择第 $j$ 个物品，那么：
+
+dp_{i,S}
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -712,7 +716,9 @@ Solution先简化题意：
           闲扯 $min-max$ 容斥 $+$ 树上高斯消元 $+$ 子集和变换
 大概是叫这个吧
 题面P5643 [PKUWC2018]随机游走
-Solution我们设 $E_i$ 表示到达点 $i$ 的期望时间。问题就是求：$$\max_{i\in S}(E_i)$$显然可以用 $min-max$ 容斥来
+Solution我们设 $E_i$ 表示到达点 $i$ 的期望时间。问题就是求：
+
+\max_{i\in S}(E_i)显然可以用 $min-max$ 容斥来解决
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -841,7 +847,11 @@ Solution我们设 $E_i$ 表示到达点 $i$ 的期望时间。问题就是求：
           闲扯树上高斯消元模板题。
 题面Maze
 Solution设 $E(u)$ 表示在 $u$ 点时，还需走的边数，那么 $E(1)$ 即为所求。
-若 $u$ 是叶节点，我们有：$$E(u)=k_u E(1)+(1-k_u-e_u)(E_{fa_u}+1)$$否则，我们有：$$E(u)=k_u E(1)+
+若 $u$ 是叶节点，我们有：
+
+E(u)=k_u E(1)+(1-k_u-e_u)(E_{fa_u}+1)否则，我们有：
+
+E(u)=k_u E(1)+\s
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -967,7 +977,11 @@ Solution设 $E(u)$ 表示在 $u$ 点时，还需走的边数，那么 $E(1)$ 即
       
         
           
-          容斥学习笔记容斥的两种基本形式：$$|\bigcup_{i=1}^n A_i|=\sum_{k=1}^n (-1)^{k+1}(\sum_{1\leq i_1&lt;\cdots&lt;i_k\leq n}|A_{i_1}\cap\cdots\cap A_{i_k}|)\|\bigcap_{i=1}
+          容斥学习笔记容斥的两种基本形式：
+
+|\bigcup_{i=1}^n A_i|=\sum_{k=1}^n (-1)^{k+1}(\sum_{1\leq i_1$min-max$ 容斥：
+
+max\{S\}=\sum_{T\in S} (-1)^{|T|+1}min\{T\}Ribbons on Tr
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1487,7 +1501,9 @@ $T1$Solution
           
           闲扯矩阵树逐渐开始变得玄学了起来。。。
 题面P3317 [SDOI2014]重建
-Solution题目要求的式子：$$\sum_{Tree}\prod_{(u,v)\in E} P_{u,v}\prod_{(u,v)\notin E} (1-P_{u,v})$$如果我们将 $P_{u,v}$ 看做这
+Solution题目要求的式子：
+
+\sum_{Tree}\prod_{(u,v)\in E} P_{u,v}\prod_{(u,v)\notin E} (1-P_{u,v})如果我们将 $P_{u,v}$ 看做这条边
           ...
           <!--noindex-->
           <div class="post-button text-center">
